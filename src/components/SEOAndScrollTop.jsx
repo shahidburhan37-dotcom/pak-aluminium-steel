@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
-const titles = {
-  '/': 'Pak Aluminium & Steel — Premium Fabrication',
-  '/windows': 'Windows — Pak Aluminium & Steel',
-  '/railings': 'Railings — Pak Aluminium & Steel',
-  '/doors': 'Doors — Pak Aluminium & Steel',
-  '/about': 'About Us — Pak Aluminium & Steel',
-  '/gallery': 'Gallery — Pak Aluminium & Steel',
-  '/admin': 'Admin — Pak Aluminium & Steel',
+const seoData = {
+  '/': { title: 'Pak Aluminium & Steel — Premium Fabrication', desc: 'Premium aluminium and steel fabrication in Pakistan. Windows, railings, doors, and custom solutions crafted with precision.' },
+  '/windows': { title: 'Windows — Pak Aluminium & Steel', desc: 'Premium aluminium sliding, casement, fixed, and custom windows. Energy efficient, secure, and beautifully designed.' },
+  '/railings': { title: 'Railings — Pak Aluminium & Steel', desc: 'Glass, steel, and aluminium railings for balconies, staircases, and pools. Safety meets style.' },
+  '/doors': { title: 'Doors — Pak Aluminium & Steel', desc: 'Sliding, folding, French, and entrance doors. Premium quality for residential and commercial spaces.' },
+  '/about': { title: 'About Us — Pak Aluminium & Steel', desc: 'Learn about our team, craftsmanship, and commitment to quality fabrication across Pakistan.' },
+  '/gallery': { title: 'Gallery — Pak Aluminium & Steel', desc: 'Explore our complete range of premium fabrication work — windows, railings, and doors.' },
+  '/admin': { title: 'Admin — Pak Aluminium & Steel', desc: '' },
 }
 
 export default function SEOAndScrollTop() {
@@ -20,8 +20,14 @@ export default function SEOAndScrollTop() {
     if (productMatch) {
       const name = productMatch[1].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
       document.title = `${name} — Pak Aluminium & Steel`
+      const meta = document.querySelector('meta[name="description"]')
+      if (meta) meta.setAttribute('content', `${name} — Premium quality from Pak Aluminium & Steel. View details, features, and get a quote.`)
+    } else if (seoData[pathname]) {
+      document.title = seoData[pathname].title
+      const meta = document.querySelector('meta[name="description"]')
+      if (meta && seoData[pathname].desc) meta.setAttribute('content', seoData[pathname].desc)
     } else {
-      document.title = titles[pathname] || 'Pak Aluminium & Steel'
+      document.title = 'Pak Aluminium & Steel — Premium Fabrication'
     }
   }, [pathname])
 

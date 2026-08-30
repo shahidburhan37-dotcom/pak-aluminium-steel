@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://pakaluminium.pk/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://pakaluminium.pk/windows</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://pakaluminium.pk/railings</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://pakaluminium.pk/doors</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://pakaluminium.pk/gallery</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pakaluminium.pk/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://pakaluminium.pk/product/sliding-window</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pakaluminium.pk/product/casement-window</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pakaluminium.pk/product/fixed-window</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pakaluminium.pk/product/bay-window</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pakaluminium.pk/product/glass-railing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pakaluminium.pk/product/steel-railing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pakaluminium.pk/product/aluminium-railing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pakaluminium.pk/product/french-door</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pakaluminium.pk/product/sliding-door</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pakaluminium.pk/product/folding-door</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pakaluminium.pk/product/entrance-door</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/windows</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/railings</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/doors</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/gallery</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/product/sliding-window</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/product/casement-window</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/product/fixed-window</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/product/bay-window</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/product/glass-railing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/product/steel-railing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/product/aluminium-railing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/product/french-door</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/product/sliding-door</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/product/folding-door</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pakaluminium.vercel.app/product/entrance-door</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
