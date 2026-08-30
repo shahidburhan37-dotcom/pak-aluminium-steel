@@ -23,7 +23,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); -webkit-font-smoothing: antialiased; margin: 0; }
-#root { min-height: 100vh; display: flex; flex-direction: column; }
+#root { min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+main { flex: 1; overflow-x: hidden; }
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
 button { cursor: pointer; font-family: var(--font-body); }
@@ -1175,4 +1176,96 @@ button { cursor: pointer; font-family: var(--font-body); }
 }
 @media (max-width: 480px) {
   .stats-row { grid-template-columns: 1fr !important; }
+}
+
+/* ═══════════════════════════════════════════════
+   GLOBAL MOBILE FIX — NO HORIZONTAL OVERFLOW
+   ═══════════════════════════════════════════════ */
+html, body { overflow-x: hidden; max-width: 100vw; }
+* { box-sizing: border-box; }
+
+@media (max-width: 480px) {
+  .section { padding: 32px 16px; margin: 8px auto; }
+  .section-dark { padding: 36px 16px; margin: 8px auto; }
+  .section-title { font-size: 24px; }
+  .section-desc { font-size: 14px; padding: 0; }
+  .section-label { font-size: 11px; }
+
+  .hero { min-height: 70vh; padding: 0 16px; }
+  .hero-title { font-size: 28px; }
+  .hero-subtitle { font-size: 14px; padding: 0; }
+  .hero-btns { flex-direction: column; align-items: stretch; }
+  .cta-btn, .cta-btn-outline { min-width: unset; width: 100%; }
+  .hero-trust { flex-direction: column; align-items: center; }
+
+  .topbar { font-size: 10px; padding: 6px 12px; }
+  .navbar-inner { padding: 0 12px; }
+  .nav-logo-text { font-size: 13px; }
+  .nav-logo-sub { font-size: 9px; }
+
+  .page-header { padding: 60px 16px 30px; }
+  .page-header-title { font-size: 28px; }
+  .page-header-desc { font-size: 14px; }
+  .filter-tabs { gap: 6px; margin-top: 24px; }
+  .filter-tab { padding: 8px 14px; font-size: 12px; }
+
+  .showcase-grid { grid-template-columns: 1fr; padding: 0 16px; gap: 16px; margin: 32px auto 0; }
+
+  .cat-card-img { height: 160px; }
+  .cat-card-body { padding: 16px; }
+
+  .most-pick-card { flex: 0 0 80vw; }
+  .most-pick-img { height: 160px; }
+  .most-pick-body { padding: 14px; }
+
+  .testimonial-card { flex: 0 0 85vw; padding: 20px; }
+
+  .gallery-card { flex: 0 0 85vw; }
+  .gallery-card-img-wrapper { height: 200px; }
+  .gallery-card-overlay { padding: 20px; }
+  .gallery-card-name { font-size: 18px; }
+
+  .carousel-header { padding: 0 16px; }
+  .carousel-track { padding: 8px 16px 16px; }
+  .carousel-nav { gap: 6px; }
+  .carousel-nav-btn { width: 36px; height: 36px; }
+
+  .feat-card { padding: 20px; }
+  .feat-icon { width: 40px; height: 40px; }
+  .feat-title { font-size: 16px; }
+  .feat-desc { font-size: 13px; }
+
+  .process-step { padding: 20px 12px; }
+  .process-num { width: 44px; height: 44px; font-size: 18px; }
+
+  .stat-number { font-size: 28px; }
+  .stat-label { font-size: 12px; }
+
+  .contact-section { margin: 8px auto; border-radius: 16px; }
+  .contact-left { padding: 32px 20px; }
+  .contact-right { padding: 32px 20px; }
+  .contact-left-title { font-size: 24px; }
+
+  .footer { padding: 40px 16px 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-brand-desc { max-width: 100%; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+
+  .whatsapp-btn { width: 52px; height: 52px; bottom: 16px; left: 16px; }
+  .whatsapp-btn svg { width: 26px; height: 26px; }
+
+  #whatsapp { padding: 32px 16px; border-radius: 16px; margin: 8px auto; }
+  #whatsapp h2 { font-size: 22px; }
+  #whatsapp p { font-size: 14px; }
+  #whatsapp a { padding: 14px 24px; font-size: 15px; }
+
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-features { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+
+  .product-detail-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+
+  .cta-section { padding: 48px 16px; }
+  .cta-title { font-size: 24px; }
+  .cta-desc { font-size: 14px; }
 }
