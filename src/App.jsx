@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { ContentProvider } from './store/ContentContext'
 import Layout from './components/Layout'
 import ErrorBoundary from './components/ErrorBoundary'
@@ -15,8 +15,14 @@ import NotFound from './pages/NotFound'
 
 function ScrollToHash() {
   const { hash, pathname, state } = useLocation()
+  const prevPathname = useRef(pathname)
 
   useEffect(() => {
+    if (prevPathname.current !== pathname) {
+      sessionStorage.setItem(`scroll-${prevPathname.current}`, window.scrollY)
+      prevPathname.current = pathname
+    }
+
     const scroll = () => {
       const target = hash || state?.scrollTo
       if (target) {
@@ -35,17 +41,6 @@ function ScrollToHash() {
     }
     scroll()
   }, [hash, pathname, state])
-
-  useEffect(() => {
-    const saveScroll = () => {
-      sessionStorage.setItem(`scroll-${pathname}`, window.scrollY)
-    }
-    window.addEventListener('beforeunload', saveScroll)
-    return () => {
-      saveScroll()
-      window.removeEventListener('beforeunload', saveScroll)
-    }
-  }, [pathname])
 
   return null
 }

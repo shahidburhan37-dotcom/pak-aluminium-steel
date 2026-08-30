@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
@@ -7,30 +6,12 @@ import SEOAndScrollTop from './SEOAndScrollTop'
 import { useContent } from '../store/ContentContext'
 
 export default function Layout({ children }) {
-  const { pathname, state } = useLocation()
   const { content } = useContent()
-  const prevPathname = useRef(pathname)
-
-  useEffect(() => {
-    if (prevPathname.current !== pathname) {
-      sessionStorage.setItem(`scroll-${prevPathname.current}`, window.scrollY)
-      prevPathname.current = pathname
-    }
-
-    const saved = sessionStorage.getItem(`scroll-${pathname}`)
-    if (state?.scrollY !== undefined) {
-      window.scrollTo(0, state.scrollY)
-    } else if (saved) {
-      window.scrollTo(0, parseInt(saved))
-    } else {
-      window.scrollTo(0, 0)
-    }
-  }, [pathname, state])
 
   return (
     <>
       <Navbar />
-      <main className="animate-page-in" key={pathname}>
+      <main className="animate-page-in">
         {children}
       </main>
       <ContactForm />
