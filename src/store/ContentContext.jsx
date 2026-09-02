@@ -109,7 +109,7 @@ const defaultContent = {
     phone: '+92 300 123 4567',
     whatsapp: '923148711616',
     email: 'hitmanbasit@gmail.com',
-    address: 'C, 11-5, 2 College Rd, Township',
+    address: 'C, 11-5, 2 College Rd, Township, Lahore, Pakistan',
   },
 
   about: {
