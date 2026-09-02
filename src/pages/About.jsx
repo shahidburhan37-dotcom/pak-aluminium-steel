@@ -10,10 +10,26 @@ const stats = [
 ]
 
 const values = [
-  { icon: '🎯', title: 'Precision', desc: 'Every cut, every joint, every finish is executed with exacting precision using CNC technology.' },
-  { icon: '💪', title: 'Durability', desc: 'We use only premium-grade aluminium and steel that withstands Pakistan\'s climate for decades.' },
-  { icon: '🎨', title: 'Design', desc: 'From minimalist modern to ornate classic — we bring your architectural vision to life.' },
-  { icon: '🤝', title: 'Trust', desc: 'Transparent pricing, honest timelines, and a commitment to exceeding expectations.' },
+  {
+    icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>,
+    title: 'Precision',
+    desc: 'Every cut, every joint, every finish is executed with exacting precision using CNC technology.',
+  },
+  {
+    icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
+    title: 'Durability',
+    desc: 'We use only premium-grade aluminium and steel that withstands Pakistan\'s climate for decades.',
+  },
+  {
+    icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>,
+    title: 'Design',
+    desc: 'From minimalist modern to ornate classic — we bring your architectural vision to life.',
+  },
+  {
+    icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+    title: 'Trust',
+    desc: 'Transparent pricing, honest timelines, and a commitment to exceeding expectations.',
+  },
 ]
 
 const timeline = [
@@ -122,7 +138,7 @@ export default function About() {
                 border: '1px solid var(--color-border)', textAlign: 'center',
                 transition: 'all 0.3s', cursor: 'default',
               }}>
-                <div style={{ fontSize: 40, marginBottom: 16 }}>{v.icon}</div>
+                <div style={{ marginBottom: 16 }}>{v.icon}</div>
                 <div style={{ fontFamily: 'var(--font-heading)', fontSize: 20, fontWeight: 600, marginBottom: 8, color: 'var(--color-text)' }}>{v.title}</div>
                 <div style={{ fontSize: 14, color: 'var(--color-text-muted)', lineHeight: 1.7 }}>{v.desc}</div>
               </div>
@@ -201,7 +217,16 @@ export default function About() {
                   border: '1px solid rgba(255,255,255,0.08)',
                   textAlign: 'center',
                 }}>
-                  <div style={{ fontSize: 32, marginBottom: 12 }}>🏆</div>
+                  <div style={{ marginBottom: 12 }}>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                      <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                      <path d="M4 22h16"/>
+                      <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                      <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                      <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                    </svg>
+                  </div>
                   <div style={{ fontSize: 16, fontWeight: 600, color: 'white', marginBottom: 4 }}>{a.title}</div>
                   <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)' }}>{a.org}</div>
                 </div>
