@@ -673,7 +673,7 @@ button { cursor: pointer; font-family: var(--font-body); }
    ═══════════════════════════════════════════════ */
 .most-pick-card {
   flex: 0 0 300px;
-  scroll-snap-align: start;
+  scroll-snap-align: none;
   position: relative;
   border-radius: 20px;
   overflow: hidden;

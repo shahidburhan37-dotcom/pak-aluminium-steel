@@ -135,7 +135,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Most Pick - moved here */}
+      {/* Features - Why Choose Us */}
+      <section className="section-dark">
+        <div className="section-inner">
+          <RevealDiv type="up">
+            <div className="section-label" style={{ color: 'var(--color-gold)' }}>Why Choose Us</div>
+            <h2 className="section-title">Built on Trust & Precision</h2>
+            <p className="section-desc">
+              We combine traditional craftsmanship with modern technology to deliver excellence.
+            </p>
+          </RevealDiv>
+
+          <div className="feat-grid">
+            {content.features.map((f, i) => (
+              <RevealDiv key={f.id} type={i % 2 === 0 ? 'left' : 'right'}>
+                <div className="feat-card" style={{ animationDelay: `${i * 0.1}s` }}>
+                  <div className="feat-card-glow feat-card-glow-a" />
+                  <div className="feat-card-glow feat-card-glow-b" />
+                  <div className="feat-icon">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      {f.icon === 'shield' && <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>}
+                      {f.icon === 'tool' && <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>}
+                      {f.icon === 'clock' && <><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></>}
+                      {f.icon === 'check' && <><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></>}
+                      {!['shield', 'tool', 'clock', 'check'].includes(f.icon) && <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>}
+                    </svg>
+                  </div>
+                  <div className="feat-title">{f.title}</div>
+                  <div className="feat-desc">{f.desc}</div>
+                </div>
+              </RevealDiv>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Most Pick */}
       <section className="section">
         <RevealDiv type="up">
           <div className="carousel-header">
@@ -183,41 +218,6 @@ export default function Home() {
                 onClick={() => pickTrackRef.current?.scrollTo({ left: i * getPickCardWidth(), behavior: 'smooth' })}
                 aria-label={`Go to slide ${i + 1}`}
               />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features - Why Choose Us */}
-      <section className="section-dark">
-        <div className="section-inner">
-          <RevealDiv type="up">
-            <div className="section-label" style={{ color: 'var(--color-gold)' }}>Why Choose Us</div>
-            <h2 className="section-title">Built on Trust & Precision</h2>
-            <p className="section-desc">
-              We combine traditional craftsmanship with modern technology to deliver excellence.
-            </p>
-          </RevealDiv>
-
-          <div className="feat-grid">
-            {content.features.map((f, i) => (
-              <RevealDiv key={f.id} type={i % 2 === 0 ? 'left' : 'right'}>
-                <div className="feat-card" style={{ animationDelay: `${i * 0.1}s` }}>
-                  <div className="feat-card-glow feat-card-glow-a" />
-                  <div className="feat-card-glow feat-card-glow-b" />
-                  <div className="feat-icon">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      {f.icon === 'shield' && <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>}
-                      {f.icon === 'tool' && <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>}
-                      {f.icon === 'clock' && <><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></>}
-                      {f.icon === 'check' && <><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></>}
-                      {!['shield', 'tool', 'clock', 'check'].includes(f.icon) && <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>}
-                    </svg>
-                  </div>
-                  <div className="feat-title">{f.title}</div>
-                  <div className="feat-desc">{f.desc}</div>
-                </div>
-              </RevealDiv>
             ))}
           </div>
         </div>
