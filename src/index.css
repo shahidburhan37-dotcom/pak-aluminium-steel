@@ -1167,7 +1167,8 @@ button { cursor: pointer; font-family: var(--font-body); }
    MOBILE RESPONSIVE — MOST PICK, STATS, PROCESS
    ═══════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  .most-pick-card { flex: 0 0 85vw; }
+  .most-pick-card { flex: 0 0 48vw; gap: 12px; }
+  .carousel-track { gap: 12px; }
   .stats-row { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
   .process-grid { grid-template-columns: 1fr !important; }
   .cat-grid { grid-template-columns: 1fr !important; }
@@ -1186,10 +1187,20 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 
 @media (max-width: 480px) {
   .section { padding: 32px 16px; margin: 8px auto; }
-  .section-dark { padding: 36px 16px; margin: 8px auto; }
+  .section-dark { padding: 48px 16px; margin: 8px auto; }
   .section-title { font-size: 24px; }
   .section-desc { font-size: 14px; padding: 0; }
   .section-label { font-size: 11px; }
+
+  .most-pick-card { flex: 0 0 48vw; }
+  .most-pick-img { height: 140px; }
+  .most-pick-body { padding: 10px; }
+  .most-pick-name { font-size: 14px; }
+  .most-pick-tag { font-size: 10px; padding: 3px 8px; }
+
+  .faq-item { padding: 14px 16px; }
+  .faq-question { font-size: 14px; }
+  .faq-answer { font-size: 13px; }
 
   .hero { min-height: 70vh; padding: 0 16px; }
   .hero-title { font-size: 28px; }

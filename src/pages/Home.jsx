@@ -205,7 +205,7 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section className="section-dark" style={{ paddingTop: 0 }}>
+      <section className="section-dark">
         <div className="section-inner">
           <RevealDiv type="up">
             <div className="section-label" style={{ color: 'var(--color-gold)' }}>Why Choose Us</div>
@@ -298,38 +298,41 @@ export default function Home() {
           <h2 className="section-title">Frequently Asked Questions</h2>
         </RevealDiv>
 
-        <div style={{ maxWidth: 700, margin: '40px auto 0' }}>
+        <div style={{ maxWidth: 800, margin: '40px auto 0', padding: '0 16px' }}>
           {content.faqs.map((faq, i) => (
             <RevealDiv key={faq.id} type="up">
               <div
+                className="faq-item"
                 style={{
-                  border: '1px solid var(--color-border)', borderRadius: 12, marginBottom: 12,
+                  border: '1px solid var(--color-border)', borderRadius: 14, marginBottom: 12,
                   overflow: 'hidden', transition: 'all 0.3s',
                   borderColor: openFaq === i ? 'var(--color-accent)' : 'var(--color-border)',
+                  background: openFaq === i ? 'rgba(45,106,79,0.02)' : 'white',
                 }}
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="faq-question"
                   style={{
-                    width: '100%', padding: '18px 20px', background: 'white', border: 'none',
+                    width: '100%', padding: '20px 24px', background: 'transparent', border: 'none',
                     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                    cursor: 'pointer', fontSize: 15, fontWeight: 600, color: 'var(--color-text)',
-                    textAlign: 'left',
+                    cursor: 'pointer', fontSize: 16, fontWeight: 600, color: 'var(--color-text)',
+                    textAlign: 'left', gap: 12,
                   }}
                 >
-                  {faq.q}
+                  <span>{faq.q}</span>
                   <svg
-                    width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"
-                    style={{ transition: 'transform 0.3s', transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)', flexShrink: 0, marginLeft: 12 }}
+                    width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"
+                    style={{ transition: 'transform 0.3s', transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)', flexShrink: 0, color: 'var(--color-accent)' }}
                   >
                     <path d="M6 9l6 6 6-6" />
                   </svg>
                 </button>
-                <div style={{
-                  maxHeight: openFaq === i ? 200 : 0, overflow: 'hidden',
+                <div className="faq-answer" style={{
+                  maxHeight: openFaq === i ? 300 : 0, overflow: 'hidden',
                   transition: 'max-height 0.3s ease',
                 }}>
-                  <p style={{ padding: '0 20px 18px', fontSize: 14, color: 'var(--color-text-muted)', lineHeight: 1.7, margin: 0 }}>
+                  <p style={{ padding: '0 24px 20px', fontSize: 15, color: 'var(--color-text-muted)', lineHeight: 1.8, margin: 0 }}>
                     {faq.a}
                   </p>
                 </div>
