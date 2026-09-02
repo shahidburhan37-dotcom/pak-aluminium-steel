@@ -1177,6 +1177,10 @@ button { cursor: pointer; font-family: var(--font-body); }
 }
 @media (max-width: 480px) {
   .stats-row { grid-template-columns: 1fr !important; }
+  .values-grid { grid-template-columns: 1fr !important; }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .values-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
 /* ═══════════════════════════════════════════════
