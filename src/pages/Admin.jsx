@@ -1,12 +1,20 @@
 import { useState } from 'react'
 import { useContent } from '../store/ContentContext'
 
-const imagesOverview = [
-  { location: 'Hero Banner', path: '/images/hero/', size: '1400 x 700', key: 'hero.bgImage' },
-  { location: 'Category: Windows', path: '/images/windows/', size: '600 x 400', key: 'categories.0.img' },
-  { location: 'Category: Railings', path: '/images/railings/', size: '600 x 400', key: 'categories.1.img' },
-  { location: 'Category: Doors', path: '/images/doors/', size: '600 x 400', key: 'categories.2.img' },
-  { location: 'About Workshop', path: '/images/about/', size: '700 x 500', key: 'about' },
+const hardcodedImages = [
+  { location: 'About Workshop Image', url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80', path: 'src/pages/About.jsx', size: '700 x 500' },
+  { location: 'Navbar Dropdown: Windows', url: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=100&q=60', path: 'src/components/Navbar.jsx', size: '100 x 100' },
+  { location: 'Navbar Dropdown: Railings', url: 'https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=100&q=60', path: 'src/components/Navbar.jsx', size: '100 x 100' },
+  { location: 'Navbar Dropdown: Doors', url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=100&q=60', path: 'src/components/Navbar.jsx', size: '100 x 100' },
+]
+
+const productSampleImages = [
+  { location: 'Sliding Windows', url: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80', path: 'src/data/products.js', size: '600 x 600' },
+  { location: 'Casement Windows', url: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80', path: 'src/data/products.js', size: '600 x 600' },
+  { location: 'Glass Railing', url: 'https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=600&q=80', path: 'src/data/products.js', size: '600 x 600' },
+  { location: 'Steel Balustrade', url: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80', path: 'src/data/products.js', size: '600 x 600' },
+  { location: 'Sliding Doors', url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80', path: 'src/data/products.js', size: '600 x 600' },
+  { location: 'French Doors', url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80', path: 'src/data/products.js', size: '600 x 600' },
 ]
 
 const s = {
@@ -384,51 +392,67 @@ export default function Admin() {
         <div style={s.section}>
           <div style={s.sectionHead}>
             <h3 style={s.sectionTitle}>All Images on Website</h3>
-            <div style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>Click any field to copy URL</div>
+            <div style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>Click any URL to copy</div>
           </div>
           <div style={{ display: 'grid', gap: 16 }}>
-            {imagesOverview.map((img) => {
+            {/* Dynamic Images from Content */}
+            <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: 1, padding: '0 4px' }}>
+              Editable via Admin (Hero, Categories)
+            </div>
+            {[
+              { location: 'Hero Banner Background', path: '/images/hero/', size: '1400 x 700', key: 'hero.bgImage' },
+              { location: 'Category: Windows Card', path: '/images/windows/', size: '600 x 400', key: 'categories.0.img' },
+              { location: 'Category: Railings Card', path: '/images/railings/', size: '600 x 400', key: 'categories.1.img' },
+              { location: 'Category: Doors Card', path: '/images/doors/', size: '600 x 400', key: 'categories.2.img' },
+            ].map((img) => {
               const val = img.key.split('.').reduce((o, k) => o?.[k], content)
               return (
                 <div key={img.key} style={s.card}>
-                  <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-                    {val && (
-                      <img
-                        src={val}
-                        alt={img.location}
-                        style={{ width: 80, height: 56, borderRadius: 8, objectFit: 'cover', border: '1px solid var(--color-border)', flexShrink: 0 }}
-                        onError={e => e.target.style.display = 'none'}
-                      />
-                    )}
+                  <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+                    {val && <img src={val} alt={img.location} style={{ width: 72, height: 50, borderRadius: 6, objectFit: 'cover', border: '1px solid var(--color-border)', flexShrink: 0 }} onError={e => e.target.style.display = 'none'} />}
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--color-text)', marginBottom: 4 }}>{img.location}</div>
-                      <div style={{ fontSize: 12, color: 'var(--color-accent)', marginBottom: 2 }}>📁 {img.path}</div>
-                      <div style={{ fontSize: 11, color: 'var(--color-text-muted)' }}>📐 Recommended: {img.size}</div>
+                      <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--color-text)' }}>{img.location}</div>
+                      <div style={{ fontSize: 11, color: 'var(--color-text-muted)' }}>📁 {img.path} &nbsp;|&nbsp; 📐 {img.size}</div>
                     </div>
                   </div>
-                  <div style={{ marginTop: 12 }}>
-                    <label style={s.label}>Current URL</label>
-                    <div style={{ display: 'flex', gap: 8 }}>
-                      <input
-                        style={{ ...s.input, flex: 1, fontSize: 12, background: '#f7f8f5' }}
-                        value={val || ''}
-                        readOnly
-                        onClick={e => { navigator.clipboard.writeText(e.target.value); e.target.style.background = '#d4edda'; setTimeout(() => e.target.style.background = '#f7f8f5', 1000) }}
-                        title="Click to copy"
-                      />
-                    </div>
-                  </div>
+                  <input style={{ ...s.input, marginTop: 10, fontSize: 11, background: '#f7f8f5' }} value={val || ''} readOnly onClick={e => { navigator.clipboard.writeText(e.target.value); e.target.select() }} title="Click to copy" />
                 </div>
               )
             })}
-            <div style={{ ...s.card, background: '#f0fdf4', border: '1px dashed var(--color-accent)' }}>
-              <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--color-accent)', marginBottom: 8 }}>Product Images (36 products)</div>
-              <div style={{ fontSize: 13, color: 'var(--color-text-muted)', lineHeight: 1.7 }}>
-                Product images are in <code>src/data/products.js</code> — each product has an <code>img</code> field with URL.
-                <br />Recommended size: <strong>600 x 600 px</strong> (square)
-                <br />To change: Edit the <code>img</code> field in the products file, or use admin "Hero" section for hero background.
-              </div>
+
+            {/* Hardcoded Images */}
+            <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: 1, padding: '0 4px', marginTop: 8 }}>
+              Hardcoded (About, Navbar)
             </div>
+            {hardcodedImages.map((img, i) => (
+              <div key={i} style={s.card}>
+                <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+                  <img src={img.url} alt={img.location} style={{ width: 72, height: 50, borderRadius: 6, objectFit: 'cover', border: '1px solid var(--color-border)', flexShrink: 0 }} onError={e => e.target.style.display = 'none'} />
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--color-text)' }}>{img.location}</div>
+                    <div style={{ fontSize: 11, color: 'var(--color-text-muted)' }}>📁 {img.path} &nbsp;|&nbsp; 📐 {img.size}</div>
+                  </div>
+                </div>
+                <input style={{ ...s.input, marginTop: 10, fontSize: 11, background: '#f7f8f5' }} value={img.url} readOnly onClick={e => { navigator.clipboard.writeText(e.target.value); e.target.select() }} title="Click to copy" />
+              </div>
+            ))}
+
+            {/* Product Sample Images */}
+            <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: 1, padding: '0 4px', marginTop: 8 }}>
+              Product Images (36 products in products.js)
+            </div>
+            {productSampleImages.map((img, i) => (
+              <div key={i} style={s.card}>
+                <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+                  <img src={img.url} alt={img.location} style={{ width: 72, height: 50, borderRadius: 6, objectFit: 'cover', border: '1px solid var(--color-border)', flexShrink: 0 }} onError={e => e.target.style.display = 'none'} />
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--color-text)' }}>{img.location}</div>
+                    <div style={{ fontSize: 11, color: 'var(--color-text-muted)' }}>📁 {img.path} &nbsp;|&nbsp; 📐 {img.size}</div>
+                  </div>
+                </div>
+                <input style={{ ...s.input, marginTop: 10, fontSize: 11, background: '#f7f8f5' }} value={img.url} readOnly onClick={e => { navigator.clipboard.writeText(e.target.value); e.target.select() }} title="Click to copy" />
+              </div>
+            ))}
           </div>
         </div>
       )}
