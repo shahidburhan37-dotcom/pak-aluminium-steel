@@ -329,7 +329,7 @@ button { cursor: pointer; font-family: var(--font-body); }
 }
 .hero-bg {
   position: absolute; inset: 0; background-size: cover; background-position: center;
-  filter: contrast(1.1) brightness(0.9) saturate(1.2); transform: scale(1.05);
+  filter: brightness(0.85); transform: scale(1.05);
   transition: transform 20s ease;
 }
 .hero:hover .hero-bg { transform: scale(1); }
