@@ -6,7 +6,7 @@ const defaultContent = {
   hero: {
     title: 'Precision Aluminium &\nSteel Fabrication',
     subtitle: 'Premium windows, railings, and doors crafted with expertise. From design to installation — we bring your vision to life.',
-    bgImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80',
+    bgImage: 'https://plus.unsplash.com/premium_photo-1661915661139-5b6a4e4a6fcc?w=1920&auto=format&fit=crop&q=90',
     cta1: 'Explore Products',
     cta2: 'Get Free Quote',
     trust1: '10+ Years Experience',
