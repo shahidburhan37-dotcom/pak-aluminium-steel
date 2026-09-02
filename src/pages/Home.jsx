@@ -355,16 +355,28 @@ export default function Home() {
         <div style={{ maxWidth: 1000, margin: '0 auto', padding: '0 16px' }}>
           <div style={{
             display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0,
-            borderRadius: 20, overflow: 'hidden', border: '1px solid var(--color-border)',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
+            borderRadius: 20, overflow: 'hidden',
+            boxShadow: '0 12px 48px rgba(0,0,0,0.12)',
+            border: '2px solid var(--color-accent)',
           }} className="location-grid">
             {/* Map */}
-            <div style={{ minHeight: 400 }}>
+            <div style={{ minHeight: 450, position: 'relative' }}>
+              <div style={{
+                position: 'absolute', top: 16, left: 16, zIndex: 10,
+                background: 'var(--color-accent)', color: 'white',
+                padding: '8px 16px', borderRadius: 10, fontSize: 12, fontWeight: 700,
+                letterSpacing: 0.5, boxShadow: '0 4px 12px rgba(45,106,79,0.3)',
+              }}>
+                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" style={{ verticalAlign: -2, marginRight: 4 }}>
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+                LIVE MAP
+              </div>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3404.200672982842!2d74.28755567560822!3d31.436141974252592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDI2JzEwLjEiTiA3NMKwMTcnMjQuNSJF!5e0!3m2!1sen!2s!4v1788321866327!5m2!1sen!2s"
                 width="100%"
                 height="100%"
-                style={{ border: 0, minHeight: 400 }}
+                style={{ border: 0, minHeight: 450 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -375,31 +387,51 @@ export default function Home() {
             {/* Address Info */}
             <div style={{
               padding: '40px 32px',
-              background: 'white',
-              display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 28,
+              background: 'linear-gradient(135deg, #0a1510, #112e24)',
+              display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 24,
             }}>
               <div>
-                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent)', marginBottom: 8 }}>Address</div>
-                <div style={{ fontSize: 18, fontWeight: 600, color: 'var(--color-text)', lineHeight: 1.5 }}>{content.footer.address}</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+                  <div style={{ width: 32, height: 32, borderRadius: 8, background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="16" height="16" fill="none" stroke="var(--color-accent-light)" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent-light)' }}>Address</div>
+                </div>
+                <div style={{ fontSize: 16, fontWeight: 600, color: 'white', lineHeight: 1.6, paddingLeft: 40 }}>{content.footer.address}</div>
               </div>
 
               <div>
-                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent)', marginBottom: 8 }}>Phone</div>
-                <a href={`tel:${content.footer.phone.replace(/\s/g, '')}`} style={{ fontSize: 18, fontWeight: 600, color: 'var(--color-text)', textDecoration: 'none' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+                  <div style={{ width: 32, height: 32, borderRadius: 8, background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="16" height="16" fill="none" stroke="var(--color-accent-light)" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                  </div>
+                  <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent-light)' }}>Phone</div>
+                </div>
+                <a href={`tel:${content.footer.phone.replace(/\s/g, '')}`} style={{ fontSize: 16, fontWeight: 600, color: 'white', textDecoration: 'none', paddingLeft: 40, display: 'block' }}>
                   {content.footer.phone}
                 </a>
               </div>
 
               <div>
-                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent)', marginBottom: 8 }}>Email</div>
-                <a href={`mailto:${content.footer.email}`} style={{ fontSize: 18, fontWeight: 600, color: 'var(--color-text)', textDecoration: 'none' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+                  <div style={{ width: 32, height: 32, borderRadius: 8, background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="16" height="16" fill="none" stroke="var(--color-accent-light)" strokeWidth="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  </div>
+                  <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent-light)' }}>Email</div>
+                </div>
+                <a href={`mailto:${content.footer.email}`} style={{ fontSize: 16, fontWeight: 600, color: 'white', textDecoration: 'none', paddingLeft: 40, display: 'block' }}>
                   {content.footer.email}
                 </a>
               </div>
 
               <div>
-                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent)', marginBottom: 8 }}>Working Hours</div>
-                <div style={{ fontSize: 16, color: 'var(--color-text-muted)', lineHeight: 1.7 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+                  <div style={{ width: 32, height: 32, borderRadius: 8, background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="16" height="16" fill="none" stroke="var(--color-accent-light)" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  </div>
+                  <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent-light)' }}>Working Hours</div>
+                </div>
+                <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, paddingLeft: 40 }}>
                   Mon – Sat: 9:00 AM – 7:00 PM<br />
                   Sunday: Closed
                 </div>
@@ -411,9 +443,9 @@ export default function Home() {
                 rel="noopener noreferrer"
                 style={{
                   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-                  padding: '14px 28px', borderRadius: 12, background: 'var(--color-accent-dark)',
-                  color: 'white', fontSize: 15, fontWeight: 600, textDecoration: 'none',
-                  transition: 'all 0.3s', marginTop: 8,
+                  padding: '14px 28px', borderRadius: 12, background: 'var(--color-accent)',
+                  color: 'white', fontSize: 14, fontWeight: 600, textDecoration: 'none',
+                  transition: 'all 0.3s', marginTop: 8, border: '1px solid var(--color-accent-light)',
                 }}
               >
                 <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
