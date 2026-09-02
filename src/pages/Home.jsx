@@ -188,23 +188,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="section-dark">
-        <div className="section-inner">
-          <div className="stats-row">
-            {content.stats.map((st, i) => (
-              <RevealDiv key={st.id} type="scale">
-                <div className="stat-item" style={{ animationDelay: `${i * 0.1}s` }}>
-                  <div className="stat-number">{st.num}</div>
-                  <div className="stat-label">{st.label}</div>
-                </div>
-              </RevealDiv>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features */}
+      {/* Features - Why Choose Us */}
       <section className="section-dark">
         <div className="section-inner">
           <RevealDiv type="up">
@@ -232,6 +216,22 @@ export default function Home() {
                   </div>
                   <div className="feat-title">{f.title}</div>
                   <div className="feat-desc">{f.desc}</div>
+                </div>
+              </RevealDiv>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="section-dark">
+        <div className="section-inner">
+          <div className="stats-row">
+            {content.stats.map((st, i) => (
+              <RevealDiv key={st.id} type="scale">
+                <div className="stat-item" style={{ animationDelay: `${i * 0.1}s` }}>
+                  <div className="stat-number">{st.num}</div>
+                  <div className="stat-label">{st.label}</div>
                 </div>
               </RevealDiv>
             ))}
