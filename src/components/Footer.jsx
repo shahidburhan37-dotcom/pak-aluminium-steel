@@ -28,6 +28,7 @@ export default function Footer() {
               <li><Link to="/about">About Us</Link></li>
               <li><Link to="/about#contact">Contact</Link></li>
               <li><Link to="/about">Our Process</Link></li>
+              <li><Link to="/admin" style={{ fontSize: 12, opacity: 0.5 }}>Admin</Link></li>
             </ul>
           </div>
           <div>
