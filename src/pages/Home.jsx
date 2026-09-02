@@ -373,7 +373,7 @@ export default function Home() {
                 LIVE MAP
               </div>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3404.200672982842!2d74.28755567560822!3d31.436141974252592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDI2JzEwLjEiTiA3NMKwMTcnMjQuNSJF!5e0!3m2!1sen!2s!4v1788321866327!5m2!1sen!2s"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d601.7850675838253!2d74.29028012686116!3d31.435873682104244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919013d14613163%3A0x5fbe94cfbf71f14b!2sPak%20Aluminum%20%26%20Steel%20Co.!5e0!3m2!1sen!2s!4v1788328270387!5m2!1sen!2s"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: 450 }}
@@ -438,7 +438,7 @@ export default function Home() {
               </div>
 
               <a
-                href="https://www.google.com/maps?ll=31.436142,74.287556&z=17&t=m&mapclient=embed&q=31.436142,74.287556"
+                href="https://www.google.com/maps?ll=31.4358736,74.2902801&z=17&t=m&mapclient=embed&q=Pak+Aluminum+%26+Steel+Co."
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
