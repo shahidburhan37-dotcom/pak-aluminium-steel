@@ -48,12 +48,7 @@ const team = [
   { name: 'Fatima Noor', role: 'Client Relations', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80' },
 ]
 
-const awards = [
-  { title: 'Best Fabricator 2023', org: 'Pakistan Construction Awards' },
-  { title: 'Quality Excellence', org: 'Lahore Chamber of Commerce' },
-  { title: 'Innovation in Design', org: 'Pakistan Architecture Forum' },
-  { title: 'Customer Choice Award', org: 'HomeExpo Pakistan' },
-]
+const awards = []
 
 export default function About() {
   const { content } = useContent()
@@ -154,21 +149,33 @@ export default function About() {
           <div className="section-label" style={{ justifyContent: 'center' }}>Our Journey</div>
           <h2 className="section-title">Milestones That Define Us</h2>
         </RevealDiv>
-        <div style={{ maxWidth: 700, margin: '48px auto 0', position: 'relative' }}>
-          <div style={{ position: 'absolute', left: 20, top: 0, bottom: 0, width: 2, background: 'var(--color-border)' }} />
+        <div className="timeline-container" style={{ maxWidth: 800, margin: '48px auto 0', position: 'relative' }}>
+          <div style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: 2, background: 'var(--color-accent)', transform: 'translateX(-50%)' }} />
           {timeline.map((t, i) => (
-            <RevealDiv key={t.year} type="left">
-              <div style={{ display: 'flex', gap: 24, marginBottom: 40, position: 'relative' }}>
+            <RevealDiv key={t.year} type={i % 2 === 0 ? 'left' : 'right'}>
+              <div style={{
+                display: 'flex', alignItems: 'center', marginBottom: 48, position: 'relative',
+                flexDirection: i % 2 === 0 ? 'row' : 'row-reverse',
+              }}>
+                <div style={{ flex: 1, textAlign: i % 2 === 0 ? 'right' : 'left', paddingRight: i % 2 === 0 ? 48 : 0, paddingLeft: i % 2 === 0 ? 0 : 48 }}>
+                  <div style={{
+                    padding: 24, borderRadius: 16, background: 'white',
+                    border: '1px solid var(--color-border)', boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+                    display: 'inline-block', textAlign: 'left', maxWidth: 320,
+                  }}>
+                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: 15, fontWeight: 700, color: 'var(--color-accent)', marginBottom: 4 }}>{t.year}</div>
+                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: 17, fontWeight: 600, color: 'var(--color-text)', marginBottom: 6 }}>{t.title}</div>
+                    <div style={{ fontSize: 13, color: 'var(--color-text-muted)', lineHeight: 1.7 }}>{t.desc}</div>
+                  </div>
+                </div>
                 <div style={{
-                  width: 42, height: 42, borderRadius: '50%',
+                  width: 44, height: 44, borderRadius: '50%',
                   background: 'var(--color-accent)', color: 'white',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontWeight: 700, fontSize: 13, flexShrink: 0, zIndex: 1,
+                  fontWeight: 700, fontSize: 12, flexShrink: 0, zIndex: 1,
+                  boxShadow: '0 0 0 4px #f7f8f5',
                 }}>{t.year.slice(2)}</div>
-                <div>
-                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 18, fontWeight: 600, color: 'var(--color-text)', marginBottom: 4 }}>{t.title}</div>
-                  <div style={{ fontSize: 14, color: 'var(--color-text-muted)', lineHeight: 1.7 }}>{t.desc}</div>
-                </div>
+                <div style={{ flex: 1 }} />
               </div>
             </RevealDiv>
           ))}
@@ -178,62 +185,31 @@ export default function About() {
       {/* Team */}
       <section className="section">
         <RevealDiv type="up" style={{ textAlign: 'center' }}>
-          <div className="section-label" style={{ justifyContent: 'center' }}>Our Team</div>
-          <h2 className="section-title">Meet the People Behind the Craft</h2>
+          <div className="section-label" style={{ justifyContent: 'center' }}>Leadership</div>
+          <h2 className="section-title">Founded on Vision, Built on Craft</h2>
           <p className="section-desc" style={{ margin: '0 auto' }}>
-            Passionate professionals dedicated to delivering excellence in every project.
+            A passionate leader dedicated to delivering excellence in every project.
           </p>
         </RevealDiv>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 24, marginTop: 48, maxWidth: 1000, margin: '48px auto 0' }}>
-          {team.map((member, i) => (
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 48, maxWidth: 500, margin: '48px auto 0' }}>
+          {team.slice(0, 1).map((member) => (
             <RevealDiv key={member.name} type="scale">
               <div style={{
                 borderRadius: 20, overflow: 'hidden', background: 'white',
                 border: '1px solid var(--color-border)', transition: 'all 0.3s',
+                textAlign: 'center', width: '100%',
               }}>
-                <img src={member.img} alt={member.name} style={{ width: '100%', height: 240, objectFit: 'cover' }} loading="lazy" />
-                <div style={{ padding: 20, textAlign: 'center' }}>
-                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 18, fontWeight: 600, color: 'var(--color-text)' }}>{member.name}</div>
-                  <div style={{ fontSize: 13, color: 'var(--color-accent)', marginTop: 4 }}>{member.role}</div>
+                <img src={member.img} alt={member.name} style={{ width: '100%', height: 300, objectFit: 'cover' }} loading="lazy" />
+                <div style={{ padding: 28 }}>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 22, fontWeight: 700, color: 'var(--color-text)' }}>{member.name}</div>
+                  <div style={{ fontSize: 14, color: 'var(--color-accent)', marginTop: 6, fontWeight: 500 }}>{member.role}</div>
+                  <div style={{ fontSize: 14, color: 'var(--color-text-muted)', marginTop: 12, lineHeight: 1.7 }}>
+                    Leading Pak Aluminium & Steel with a vision for premium fabrication and precision craftsmanship since 2015.
+                  </div>
                 </div>
               </div>
             </RevealDiv>
           ))}
-        </div>
-      </section>
-
-      {/* Awards */}
-      <section className="section-dark">
-        <div className="section-inner">
-          <RevealDiv type="up" style={{ textAlign: 'center' }}>
-            <div className="section-label" style={{ color: 'var(--color-gold)', justifyContent: 'center' }}>Recognition</div>
-            <h2 className="section-title" style={{ color: 'white' }}>Awards & Achievements</h2>
-          </RevealDiv>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 20, marginTop: 48 }}>
-            {awards.map((a, i) => (
-              <RevealDiv key={a.title} type="scale">
-                <div style={{
-                  padding: 28, borderRadius: 16,
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  textAlign: 'center',
-                }}>
-                  <div style={{ marginBottom: 12 }}>
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
-                      <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
-                      <path d="M4 22h16"/>
-                      <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
-                      <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
-                      <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
-                    </svg>
-                  </div>
-                  <div style={{ fontSize: 16, fontWeight: 600, color: 'white', marginBottom: 4 }}>{a.title}</div>
-                  <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)' }}>{a.org}</div>
-                </div>
-              </RevealDiv>
-            ))}
-          </div>
         </div>
       </section>
 
