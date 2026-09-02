@@ -50,7 +50,7 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="hero">
-        <div className="hero-bg" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1400&q=80)` }} />
+        <div className="hero-bg" style={{ backgroundImage: `url(${content.hero.bgImage})` }} />
         <div className="hero-overlay" />
 
         <div className="hero-content">
