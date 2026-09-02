@@ -342,6 +342,88 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Location / Map */}
+      <section className="section">
+        <RevealDiv type="up" style={{ textAlign: 'center' }}>
+          <div className="section-label" style={{ justifyContent: 'center' }}>Find Us</div>
+          <h2 className="section-title">Our Location</h2>
+          <p className="section-desc" style={{ margin: '0 auto 40px' }}>
+            Visit us at our workshop in Lahore for a free consultation and live demo.
+          </p>
+        </RevealDiv>
+
+        <div style={{ maxWidth: 1000, margin: '0 auto', padding: '0 16px' }}>
+          <div style={{
+            display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0,
+            borderRadius: 20, overflow: 'hidden', border: '1px solid var(--color-border)',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
+          }} className="location-grid">
+            {/* Map */}
+            <div style={{ minHeight: 400 }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3404.200672982842!2d74.28755567560822!3d31.436141974252592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDI2JzEwLjEiTiA3NMKwMTcnMjQuNSJF!5e0!3m2!1sen!2s!4v1788320649653!5m2!1sen!2s"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: 400 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="Pak Aluminium & Steel Location"
+              />
+            </div>
+
+            {/* Address Info */}
+            <div style={{
+              padding: '40px 32px',
+              background: 'white',
+              display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 28,
+            }}>
+              <div>
+                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent)', marginBottom: 8 }}>Address</div>
+                <div style={{ fontSize: 18, fontWeight: 600, color: 'var(--color-text)', lineHeight: 1.5 }}>{content.footer.address}</div>
+              </div>
+
+              <div>
+                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent)', marginBottom: 8 }}>Phone</div>
+                <a href={`tel:${content.footer.phone.replace(/\s/g, '')}`} style={{ fontSize: 18, fontWeight: 600, color: 'var(--color-text)', textDecoration: 'none' }}>
+                  {content.footer.phone}
+                </a>
+              </div>
+
+              <div>
+                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent)', marginBottom: 8 }}>Email</div>
+                <a href={`mailto:${content.footer.email}`} style={{ fontSize: 18, fontWeight: 600, color: 'var(--color-text)', textDecoration: 'none' }}>
+                  {content.footer.email}
+                </a>
+              </div>
+
+              <div>
+                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent)', marginBottom: 8 }}>Working Hours</div>
+                <div style={{ fontSize: 16, color: 'var(--color-text-muted)', lineHeight: 1.7 }}>
+                  Mon – Sat: 9:00 AM – 7:00 PM<br />
+                  Sunday: Closed
+                </div>
+              </div>
+
+              <a
+                href="https://www.google.com/maps?ll=31.436142,74.287556&z=17&t=m&mapclient=embed&q=31.436142,74.287556"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                  padding: '14px 28px', borderRadius: 12, background: 'var(--color-accent-dark)',
+                  color: 'white', fontSize: 15, fontWeight: 600, textDecoration: 'none',
+                  transition: 'all 0.3s', marginTop: 8,
+                }}
+              >
+                <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Open in Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* WhatsApp Section */}
       <section id="whatsapp" className="section" style={{ background: '#f7f8f5', maxWidth: '100%', padding: 'clamp(48px, 6vw, 72px) clamp(20px, 5vw, 52px)', borderRadius: 24, margin: '12px auto' }}>
         <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
