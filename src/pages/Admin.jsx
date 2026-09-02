@@ -1,6 +1,14 @@
 import { useState } from 'react'
 import { useContent } from '../store/ContentContext'
 
+const imagesOverview = [
+  { location: 'Hero Banner', path: '/images/hero/', size: '1400 x 700', key: 'hero.bgImage' },
+  { location: 'Category: Windows', path: '/images/windows/', size: '600 x 400', key: 'categories.0.img' },
+  { location: 'Category: Railings', path: '/images/railings/', size: '600 x 400', key: 'categories.1.img' },
+  { location: 'Category: Doors', path: '/images/doors/', size: '600 x 400', key: 'categories.2.img' },
+  { location: 'About Workshop', path: '/images/about/', size: '700 x 500', key: 'about' },
+]
+
 const s = {
   page: { padding: '40px 24px', maxWidth: 900, margin: '0 auto', fontFamily: 'var(--font-body)' },
   header: { marginBottom: 40 },
@@ -44,6 +52,7 @@ export default function Admin() {
     { id: 'cta', label: 'CTA' },
     { id: 'footer', label: 'Footer' },
     { id: 'about', label: 'About' },
+    { id: 'images', label: 'Images' },
   ]
 
   return (
@@ -367,6 +376,59 @@ export default function Admin() {
               value={content.about.features.join('\n')}
               onChange={e => updateContent('about.features', e.target.value.split('\n').filter(Boolean))}
             />
+          </div>
+        </div>
+      )}
+
+      {active === 'images' && (
+        <div style={s.section}>
+          <div style={s.sectionHead}>
+            <h3 style={s.sectionTitle}>All Images on Website</h3>
+            <div style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>Click any field to copy URL</div>
+          </div>
+          <div style={{ display: 'grid', gap: 16 }}>
+            {imagesOverview.map((img) => {
+              const val = img.key.split('.').reduce((o, k) => o?.[k], content)
+              return (
+                <div key={img.key} style={s.card}>
+                  <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+                    {val && (
+                      <img
+                        src={val}
+                        alt={img.location}
+                        style={{ width: 80, height: 56, borderRadius: 8, objectFit: 'cover', border: '1px solid var(--color-border)', flexShrink: 0 }}
+                        onError={e => e.target.style.display = 'none'}
+                      />
+                    )}
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--color-text)', marginBottom: 4 }}>{img.location}</div>
+                      <div style={{ fontSize: 12, color: 'var(--color-accent)', marginBottom: 2 }}>📁 {img.path}</div>
+                      <div style={{ fontSize: 11, color: 'var(--color-text-muted)' }}>📐 Recommended: {img.size}</div>
+                    </div>
+                  </div>
+                  <div style={{ marginTop: 12 }}>
+                    <label style={s.label}>Current URL</label>
+                    <div style={{ display: 'flex', gap: 8 }}>
+                      <input
+                        style={{ ...s.input, flex: 1, fontSize: 12, background: '#f7f8f5' }}
+                        value={val || ''}
+                        readOnly
+                        onClick={e => { navigator.clipboard.writeText(e.target.value); e.target.style.background = '#d4edda'; setTimeout(() => e.target.style.background = '#f7f8f5', 1000) }}
+                        title="Click to copy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+            <div style={{ ...s.card, background: '#f0fdf4', border: '1px dashed var(--color-accent)' }}>
+              <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--color-accent)', marginBottom: 8 }}>Product Images (36 products)</div>
+              <div style={{ fontSize: 13, color: 'var(--color-text-muted)', lineHeight: 1.7 }}>
+                Product images are in <code>src/data/products.js</code> — each product has an <code>img</code> field with URL.
+                <br />Recommended size: <strong>600 x 600 px</strong> (square)
+                <br />To change: Edit the <code>img</code> field in the products file, or use admin "Hero" section for hero background.
+              </div>
+            </div>
           </div>
         </div>
       )}
