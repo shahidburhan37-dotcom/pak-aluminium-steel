@@ -392,7 +392,7 @@ export default function Admin() {
         <div style={s.section}>
           <div style={s.sectionHead}>
             <h3 style={s.sectionTitle}>All Images on Website</h3>
-            <div style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>Click any URL to copy</div>
+            <div style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>Editable fields: paste URL & press Enter. Others: click to copy.</div>
           </div>
           <div style={{ display: 'grid', gap: 16 }}>
             {/* Dynamic Images from Content */}
@@ -415,7 +415,18 @@ export default function Admin() {
                       <div style={{ fontSize: 11, color: 'var(--color-text-muted)' }}>📁 {img.path} &nbsp;|&nbsp; 📐 {img.size}</div>
                     </div>
                   </div>
-                  <input style={{ ...s.input, marginTop: 10, fontSize: 11, background: '#f7f8f5' }} value={val || ''} readOnly onClick={e => { navigator.clipboard.writeText(e.target.value); e.target.select() }} title="Click to copy" />
+                  <div style={{ marginTop: 10, display: 'flex', gap: 8, alignItems: 'center' }}>
+                    <input
+                      style={{ ...s.input, flex: 1, fontSize: 11 }}
+                      value={val || ''}
+                      onChange={e => updateContent(img.key, e.target.value)}
+                      placeholder="Paste image URL here..."
+                    />
+                    <button
+                      style={{ ...s.btn, ...s.btnPrimary, padding: '8px 12px', fontSize: 11, flexShrink: 0 }}
+                      onClick={() => { navigator.clipboard.writeText(val || ''); alert('URL copied!') }}
+                    >Copy</button>
+                  </div>
                 </div>
               )
             })}
