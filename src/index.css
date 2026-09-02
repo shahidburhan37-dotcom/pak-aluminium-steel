@@ -1179,11 +1179,13 @@ button { cursor: pointer; font-family: var(--font-body); }
 @media (max-width: 480px) {
   .stats-row { grid-template-columns: 1fr !important; }
   .values-grid { grid-template-columns: 1fr !important; }
-  .timeline-container > div > div { flex-direction: column !important; }
-  .timeline-container > div > div > div:first-child { text-align: center !important; padding: 0 0 16px 0 !important; }
+  .timeline-container { padding-left: 0 !important; }
+  .timeline-container > div[style*="position: absolute"] { left: 20px !important; transform: none !important; }
+  .timeline-container > div > div { flex-direction: column !important; align-items: flex-start !important; gap: 0 !important; padding-left: 56px !important; }
+  .timeline-container > div > div > div:first-child { text-align: left !important; padding: 0 !important; flex: 1 !important; }
   .timeline-container > div > div > div:first-child > div { max-width: 100% !important; }
-  .timeline-container > div { position: static !important; }
-  .timeline-container > div > div { position: static !important; }
+  .timeline-container > div > div > div:nth-child(2) { position: absolute !important; left: 0 !important; top: 0 !important; }
+  .timeline-container > div > div > div:last-child { display: none !important; }
 }
 @media (min-width: 481px) and (max-width: 768px) {
   .values-grid { grid-template-columns: repeat(2, 1fr) !important; }
