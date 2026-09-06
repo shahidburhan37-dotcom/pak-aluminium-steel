@@ -72,11 +72,6 @@ export default function Home() {
                 <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
             </Link>
-            <Link to="/about">
-              <button className="cta-btn-outline">
-                {content.hero.cta2}
-              </button>
-            </Link>
           </div>
           <div className="hero-trust animate-hero-up delay-4">
             <div className="hero-trust-item">
@@ -483,6 +478,18 @@ export default function Home() {
               </svg>
               Contact on WhatsApp
             </a>
+            <Link to="/#contact-form" style={{ textDecoration: 'none' }}>
+              <button style={{
+                display: 'inline-flex', alignItems: 'center', gap: 10,
+                padding: '18px 40px', borderRadius: 14,
+                background: 'var(--color-accent-dark)', color: 'white', fontSize: 17, fontWeight: 700,
+                border: 'none', cursor: 'pointer', transition: 'all 0.3s', marginTop: 16,
+                boxShadow: '0 8px 32px rgba(27,67,50,0.3)',
+              }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Get Free Quote
+              </button>
+            </Link>
           </RevealDiv>
         </div>
       </section>

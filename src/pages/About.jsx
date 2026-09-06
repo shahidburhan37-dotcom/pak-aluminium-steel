@@ -4,7 +4,7 @@ import RevealDiv from '../components/RevealDiv'
 
 const stats = [
   { num: '500+', label: 'Projects Completed' },
-  { num: '10+', label: 'Years Experience' },
+  { num: '25+', label: 'Years Experience' },
   { num: '50+', label: 'Expert Craftsmen' },
   { num: '100%', label: 'Client Satisfaction' },
 ]
@@ -33,11 +33,11 @@ const values = [
 ]
 
 const timeline = [
-  { year: '2015', title: 'Founded', desc: 'Started with a small workshop in Johar Town, Lahore with a vision for premium fabrication.' },
-  { year: '2017', title: 'First Major Project', desc: 'Completed our first commercial building facade — 200+ windows for a DHA office complex.' },
-  { year: '2019', title: 'Advanced Machinery', desc: 'Invested in German precision machinery, boosting production capacity by 300%.' },
-  { year: '2021', title: '500+ Projects', desc: 'Milestone of 500 completed projects across residential, commercial, and industrial sectors.' },
-  { year: '2023', title: 'Expansion', desc: 'Expanded workshop to 10,000 sq ft with dedicated sections for windows, railings, and doors.' },
+  { year: '2001', title: 'Founded', desc: 'Started with a small workshop in Lahore with a vision for premium fabrication.' },
+  { year: '2006', title: 'First Major Project', desc: 'Completed our first commercial building facade — 200+ windows for a DHA office complex.' },
+  { year: '2012', title: 'Advanced Machinery', desc: 'Invested in German precision machinery, boosting production capacity by 300%.' },
+  { year: '2018', title: '500+ Projects', desc: 'Milestone of 500 completed projects across residential, commercial, and industrial sectors.' },
+  { year: '2022', title: 'Expansion', desc: 'Expanded workshop to 10,000 sq ft with dedicated sections for windows, railings, and doors.' },
   { year: '2025', title: 'Innovation', desc: 'Launching smart glass solutions and automated sliding systems for modern homes.' },
 ]
 
@@ -73,7 +73,7 @@ export default function About() {
           </RevealDiv>
           <RevealDiv type="right">
             <div className="about-content">
-              <h3>Crafting Excellence Since 2015</h3>
+              <h3>Crafting Excellence Since 2001</h3>
               <p>
                 Pak Aluminium & Steel is a leading aluminium and steel fabrication company based in Lahore, Pakistan. We specialize in designing, fabricating, and installing premium windows, railings, doors, and custom metalwork for residential and commercial projects.
               </p>
