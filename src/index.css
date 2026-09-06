@@ -383,9 +383,9 @@ button { cursor: pointer; font-family: var(--font-body); }
 }
 .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(27,67,50,0.4); }
 .cta-btn.secondary {
-  background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25);
+  background: var(--color-accent); color: white; border: none;
 }
-.cta-btn.secondary:hover { background: rgba(255,255,255,0.25); box-shadow: 0 12px 32px rgba(255,255,255,0.1); }
+.cta-btn.secondary:hover { background: var(--color-accent-dark); box-shadow: 0 12px 32px rgba(27,67,50,0.4); }
 .cta-btn-outline {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   min-width: 180px; min-height: 52px; padding: 14px 28px;
