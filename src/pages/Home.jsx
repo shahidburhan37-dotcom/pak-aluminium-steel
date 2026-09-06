@@ -55,11 +55,7 @@ export default function Home() {
 
         <div className="hero-content">
           <div className="hero-icon animate-hero-up delay-0">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-              <path d="M2 17l10 5 10-5"/>
-              <path d="M2 12l10 5 10-5"/>
-            </svg>
+            <img src="/images/hero-logo.png" alt="Pak Aluminium & Steel" style={{ width: 80, height: 80, objectFit: 'contain' }} />
           </div>
           <h1 className="hero-title animate-hero-up delay-1">
             {content.hero.title.split('\n').map((line, i) => (
@@ -397,7 +393,7 @@ export default function Home() {
                   </div>
                   <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent-light)' }}>Address</div>
                 </div>
-                <div style={{ fontSize: 16, fontWeight: 600, color: 'white', lineHeight: 1.6, paddingLeft: 40 }}>{content.footer.address}</div>
+                <div style={{ fontSize: 16, fontWeight: 600, color: 'white', lineHeight: 1.6, paddingLeft: 40, textAlign: 'left' }}>{content.footer.address}</div>
               </div>
 
               <div>
@@ -407,7 +403,7 @@ export default function Home() {
                   </div>
                   <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent-light)' }}>Phone</div>
                 </div>
-                <a href={`tel:${content.footer.phone.replace(/\s/g, '')}`} style={{ fontSize: 16, fontWeight: 600, color: 'white', textDecoration: 'none', paddingLeft: 40, display: 'block' }}>
+                <a href={`tel:${content.footer.phone.replace(/\s/g, '')}`} style={{ fontSize: 16, fontWeight: 600, color: 'white', textDecoration: 'none', paddingLeft: 40, display: 'block', textAlign: 'left' }}>
                   {content.footer.phone}
                 </a>
               </div>
@@ -419,7 +415,7 @@ export default function Home() {
                   </div>
                   <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent-light)' }}>Email</div>
                 </div>
-                <a href={`mailto:${content.footer.email}`} style={{ fontSize: 16, fontWeight: 600, color: 'white', textDecoration: 'none', paddingLeft: 40, display: 'block' }}>
+                <a href={`mailto:${content.footer.email}`} style={{ fontSize: 16, fontWeight: 600, color: 'white', textDecoration: 'none', paddingLeft: 40, display: 'block', textAlign: 'left' }}>
                   {content.footer.email}
                 </a>
               </div>
