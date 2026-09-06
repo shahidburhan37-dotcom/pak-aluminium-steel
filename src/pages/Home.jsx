@@ -72,6 +72,12 @@ export default function Home() {
                 <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
             </a>
+            <Link to="/gallery">
+              <button className="cta-btn secondary">
+                {content.hero.cta1}
+                <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </Link>
           </div>
           <div className="hero-trust animate-hero-up delay-4">
             <div className="hero-trust-item">
