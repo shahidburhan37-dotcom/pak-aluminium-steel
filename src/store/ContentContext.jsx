@@ -116,7 +116,7 @@ const defaultContent = {
     title: 'About Pak Aluminium & Steel',
     desc: 'A decade of precision fabrication — turning architectural visions into reality.',
     story1: 'Pak Aluminium & Steel is a leading aluminium and steel fabrication company based in Lahore, Pakistan. We specialize in designing, fabricating, and installing premium windows, railings, doors, and custom metalwork for residential and commercial projects.',
-    story2: 'Our state-of-the-art workshop combines traditional craftsmanship with modern CNC technology, ensuring every product meets the highest standards of precision and quality. From a single window to an entire building facade — we deliver.',
+    story2: 'Our state-of-the-art workshop combines traditional craftsmanship with modern technology, ensuring every product meets the highest standards of precision and quality. From a single window to an entire building facade — we deliver.',
     features: [
       'Free site consultation & measurement',
       'Custom 3D design visualization',

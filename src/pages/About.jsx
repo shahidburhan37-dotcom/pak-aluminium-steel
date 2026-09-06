@@ -13,7 +13,7 @@ const values = [
   {
     icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>,
     title: 'Precision',
-    desc: 'Every cut, every joint, every finish is executed with exacting precision using CNC technology.',
+    desc: 'Every cut, every joint, every finish is executed with exacting precision using modern technology.',
   },
   {
     icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
@@ -35,7 +35,7 @@ const values = [
 const timeline = [
   { year: '2015', title: 'Founded', desc: 'Started with a small workshop in Johar Town, Lahore with a vision for premium fabrication.' },
   { year: '2017', title: 'First Major Project', desc: 'Completed our first commercial building facade — 200+ windows for a DHA office complex.' },
-  { year: '2019', title: 'CNC Technology', desc: 'Invested in German CNC machinery, boosting precision and production capacity by 300%.' },
+  { year: '2019', title: 'Advanced Machinery', desc: 'Invested in German precision machinery, boosting production capacity by 300%.' },
   { year: '2021', title: '500+ Projects', desc: 'Milestone of 500 completed projects across residential, commercial, and industrial sectors.' },
   { year: '2023', title: 'Expansion', desc: 'Expanded workshop to 10,000 sq ft with dedicated sections for windows, railings, and doors.' },
   { year: '2025', title: 'Innovation', desc: 'Launching smart glass solutions and automated sliding systems for modern homes.' },
@@ -78,7 +78,7 @@ export default function About() {
                 Pak Aluminium & Steel is a leading aluminium and steel fabrication company based in Lahore, Pakistan. We specialize in designing, fabricating, and installing premium windows, railings, doors, and custom metalwork for residential and commercial projects.
               </p>
               <p>
-                Our state-of-the-art workshop combines traditional craftsmanship with modern CNC technology, ensuring every product meets the highest standards of precision and quality. From a single window to an entire building facade — we deliver.
+                Our state-of-the-art workshop combines traditional craftsmanship with modern technology, ensuring every product meets the highest standards of precision and quality. From a single window to an entire building facade — we deliver.
               </p>
               <div className="about-features">
                 {[

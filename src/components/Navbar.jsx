@@ -45,13 +45,7 @@ export default function Navbar() {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="navbar-inner">
           <Link to="/" className="nav-logo">
-            <div className="nav-logo-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5"/>
-                <path d="M2 12l10 5 10-5"/>
-              </svg>
-            </div>
+            <img src="/images/logo.jpeg" alt="Pak Aluminium & Steel" style={{ height: 40, width: 40, borderRadius: 8, objectFit: 'cover' }} />
             <div className="nav-logo-text-wrap">
               <span className="nav-logo-text">Pak Aluminium</span>
               <span className="nav-logo-sub">& Steel</span>
