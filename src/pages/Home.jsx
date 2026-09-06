@@ -55,7 +55,7 @@ export default function Home() {
 
         <div className="hero-content">
           <div className="hero-icon animate-hero-up delay-0">
-            <img src="/images/hero-logo.png" alt="Pak Aluminium & Steel" style={{ width: 80, height: 80, objectFit: 'contain' }} />
+            <img src="/images/hero-logo.jpeg" alt="Pak Aluminium & Steel" style={{ width: 80, height: 80, objectFit: 'contain', borderRadius: 12 }} />
           </div>
           <h1 className="hero-title animate-hero-up delay-1">
             {content.hero.title.split('\n').map((line, i) => (
