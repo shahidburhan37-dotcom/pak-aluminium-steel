@@ -32,7 +32,7 @@ export default function ContactForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: 'YOUR_ACCESS_KEY_HERE',
+          access_key: 'fa74a647-0c65-455a-a8c1-3175daadcc0e',
           name: form.name,
           phone: form.phone,
           email: form.email,
