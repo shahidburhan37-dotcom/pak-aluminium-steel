@@ -451,7 +451,7 @@ export default function Home() {
                   </div>
                   <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--color-accent-light)' }}>Working Hours</div>
                 </div>
-                <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, paddingLeft: 40 }}>
+                <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, paddingLeft: 40, textAlign: 'right' }}>
                   Mon – Sat: 9:00 AM – 7:00 PM<br />
                   Sunday: Closed
                 </div>

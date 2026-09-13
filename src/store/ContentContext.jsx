@@ -129,7 +129,7 @@ const defaultContent = {
   footer: {
     brand: 'Pak Aluminium & Steel',
     desc: 'Premium aluminium and steel fabrication — windows, railings, doors, and custom solutions crafted with precision across Pakistan.',
-    phone: '+92 300 123 4567',
+    phone: '+92 314 8711616',
     whatsapp: '923148711616',
     email: 'hitmanbasit@gmail.com',
     address: 'C, 11-5, 2 College Rd, Township, Lahore, Pakistan',

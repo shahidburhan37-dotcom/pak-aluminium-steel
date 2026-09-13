@@ -131,7 +131,7 @@ export default function ProductDetail() {
 
           {/* Right - Contact Form */}
           <RevealDiv type="right">
-            <div style={{ background: 'var(--color-dark)', borderRadius: 16, padding: 32, position: 'sticky', top: 100 }}>
+            <div style={{ background: 'var(--color-bg-dark)', borderRadius: 16, padding: 32, position: 'sticky', top: 100 }}>
               {submitted ? (
                 <div style={{ textAlign: 'center', padding: '40px 0' }}>
                   <div style={{ fontSize: 48, marginBottom: 16 }}>&#10003;</div>

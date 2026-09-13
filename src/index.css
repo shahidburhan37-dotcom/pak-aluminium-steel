@@ -353,7 +353,7 @@ button { cursor: pointer; font-family: var(--font-body); }
   position: relative; z-index: 100;
   text-align: center;
   max-width: 800px;
-  padding: 0 24px;
+  padding: 10px 24px 0;
   display: flex; flex-direction: column; align-items: center;
 }
 .hero-logo-clean {
