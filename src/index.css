@@ -323,7 +323,6 @@ button { cursor: pointer; font-family: var(--font-body); }
 .hero {
   position: relative;
   min-height: 85vh;
-  margin-top: -93px;
   display: flex;
   align-items: center;
   justify-content: center;
