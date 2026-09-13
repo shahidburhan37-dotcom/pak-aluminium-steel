@@ -811,6 +811,8 @@ button { cursor: pointer; font-family: var(--font-body); }
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: center;
+  text-align: center;
   padding: 24px;
   opacity: 0;
   transition: opacity 0.4s cubic-bezier(.22,1,.36,1);
@@ -831,8 +833,9 @@ button { cursor: pointer; font-family: var(--font-body); }
   line-height: 1.4;
 }
 .masonry-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 10px 22px;
   border-radius: 10px;
@@ -841,6 +844,7 @@ button { cursor: pointer; font-family: var(--font-body); }
   font-size: 13px;
   font-weight: 600;
   width: fit-content;
+  margin: 0 auto;
   transition: all 0.25s cubic-bezier(.22,1,.36,1);
 }
 .masonry-item:hover .masonry-btn {
@@ -883,6 +887,8 @@ button { cursor: pointer; font-family: var(--font-body); }
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: center;
+  text-align: center;
   padding: 20px;
   opacity: 0;
   transition: opacity 0.35s cubic-bezier(.22,1,.36,1);
@@ -912,8 +918,9 @@ button { cursor: pointer; font-family: var(--font-body); }
   overflow: hidden;
 }
 .gallery-card-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   padding: 7px 16px;
   border-radius: 8px;
@@ -922,6 +929,7 @@ button { cursor: pointer; font-family: var(--font-body); }
   font-size: 12px;
   font-weight: 600;
   width: fit-content;
+  margin: 0 auto;
   transition: all 0.25s cubic-bezier(.22,1,.36,1);
 }
 .gallery-card:hover .gallery-card-btn {
