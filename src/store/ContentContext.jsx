@@ -1,5 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 
+const CONTENT_VERSION = 2
+
 const defaultContent = {
   topbar: 'Premium Aluminium & Steel Fabrication — Free Consultation Available',
 
@@ -157,6 +159,10 @@ export function ContentProvider({ children }) {
       const saved = localStorage.getItem('pakaluminium-content')
       if (saved) {
         const parsed = JSON.parse(saved)
+        if (parsed._version !== CONTENT_VERSION) {
+          localStorage.removeItem('pakaluminium-content')
+          return defaultContent
+        }
         return { ...defaultContent, ...parsed }
       }
       return defaultContent
@@ -166,7 +172,7 @@ export function ContentProvider({ children }) {
   })
 
   useEffect(() => {
-    localStorage.setItem('pakaluminium-content', JSON.stringify(content))
+    localStorage.setItem('pakaluminium-content', JSON.stringify({ ...content, _version: CONTENT_VERSION }))
   }, [content])
 
   const updateContent = (path, value) => {

@@ -687,7 +687,7 @@ button { cursor: pointer; font-family: var(--font-body); }
   cursor: pointer;
   display: flex; flex-direction: column;
   flex: 0 0 300px;
-  height: auto;
+  height: 380px;
 }
 .most-pick-card:hover {
   transform: translateY(-6px);
@@ -696,40 +696,47 @@ button { cursor: pointer; font-family: var(--font-body); }
 }
 .most-pick-img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(.22,1,.36,1);
+  flex-shrink: 0;
 }
 .most-pick-card:hover .most-pick-img { transform: scale(1.06); }
-.most-pick-body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+.most-pick-body {
+  padding: 16px 20px 20px;
+  display: flex; flex-direction: column; flex: 1;
+  overflow: hidden;
+}
 .most-pick-tag {
   display: inline-block;
-  padding: 5px 12px;
+  padding: 4px 10px;
   border-radius: 999px;
   font-size: 11px;
   font-weight: 600;
   background: rgba(45,106,79,0.08);
   color: var(--color-accent);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   width: fit-content;
+  flex-shrink: 0;
 }
 .most-pick-name {
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--color-text);
-  margin-bottom: 6px;
-  min-height: 44px;
+  margin-bottom: 0;
+  line-height: 1.35;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  flex-shrink: 0;
 }
 .most-pick-desc {
-  margin-top: 8px;
-  font-size: 13px;
+  margin-top: 6px;
+  font-size: 12px;
   color: var(--color-text-muted);
-  line-height: 1.5;
+  line-height: 1.45;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -827,7 +834,8 @@ button { cursor: pointer; font-family: var(--font-body); }
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  height: 240px;
+  height: 220px;
+  flex-shrink: 0;
 }
 .gallery-card-img {
   width: 100%;
@@ -843,7 +851,7 @@ button { cursor: pointer; font-family: var(--font-body); }
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 24px;
+  padding: 20px;
   opacity: 0;
   transition: opacity 0.35s cubic-bezier(.22,1,.36,1);
   border-radius: 16px;
@@ -851,19 +859,20 @@ button { cursor: pointer; font-family: var(--font-body); }
 .gallery-card:hover .gallery-card-overlay { opacity: 1; }
 .gallery-card-name {
   font-family: var(--font-heading);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
   color: white;
   margin-bottom: 4px;
+  line-height: 1.3;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 .gallery-card-desc {
-  font-size: 13px;
+  font-size: 12px;
   color: rgba(255,255,255,0.7);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -874,7 +883,7 @@ button { cursor: pointer; font-family: var(--font-body); }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 18px;
+  padding: 7px 16px;
   border-radius: 8px;
   background: var(--color-accent);
   color: white;
@@ -1323,9 +1332,9 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   .cat-card-img { height: 160px; }
   .cat-card-body { padding: 16px; }
 
-  .most-pick-card { flex: 0 0 80vw; }
-  .most-pick-img { height: 160px; }
-  .most-pick-body { padding: 14px; }
+  .most-pick-card { flex: 0 0 260px; height: 340px; }
+  .most-pick-img { height: 150px; }
+  .most-pick-body { padding: 12px 16px 16px; }
 
   .testimonial-card { flex: 0 0 85vw; padding: 20px; }
 
