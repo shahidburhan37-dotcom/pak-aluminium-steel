@@ -10,9 +10,21 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState(null)
   const pickTrackRef = useRef(null)
   const [activePick, setActivePick] = useState(0)
+  const [heroSlide, setHeroSlide] = useState(0)
+
+  const heroImages = [
+    '/images/hero-1.webp',
+    '/images/hero-2.webp',
+    '/images/hero-3.webp',
+    '/images/hero-4.webp',
+  ]
 
   useEffect(() => {
     document.title = 'Pak Aluminium & Steel — Premium Aluminium & Steel Fabrication in Lahore, Pakistan'
+    const timer = setInterval(() => {
+      setHeroSlide(prev => (prev + 1) % heroImages.length)
+    }, 5000)
+    return () => clearInterval(timer)
   }, [])
 
   const mostPickItems = categories.map(c => getProductsByCategory(c.slug).slice(0, 2)).flat()
@@ -55,7 +67,19 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="hero">
-        <div className="hero-bg" style={{ backgroundImage: `url(${content.hero.bgImage})` }} />
+        {heroImages.map((img, i) => (
+          <div
+            key={i}
+            className="hero-bg"
+            style={{
+              backgroundImage: `url(${img})`,
+              opacity: heroSlide === i ? 1 : 0,
+              transition: 'opacity 1s ease-in-out',
+              position: 'absolute',
+              inset: 0,
+            }}
+          />
+        ))}
         <div className="hero-overlay" />
 
         <div className="hero-content">
@@ -98,6 +122,17 @@ export default function Home() {
               <span>{content.hero.trust3}</span>
             </div>
           </div>
+        </div>
+
+        <div className="hero-dots animate-hero-up delay-5">
+          {heroImages.map((_, i) => (
+            <button
+              key={i}
+              className={`hero-dot ${heroSlide === i ? 'active' : ''}`}
+              onClick={() => setHeroSlide(i)}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
         </div>
 
         <div className="hero-scroll animate-hero-up delay-5">
