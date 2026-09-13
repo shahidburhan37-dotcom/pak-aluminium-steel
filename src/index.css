@@ -1220,7 +1220,7 @@ button { cursor: pointer; font-family: var(--font-body); }
    PAGE HEADER (inner pages)
    ═══════════════════════════════════════════════ */
 .page-header {
-  min-height: 35vh;
+  min-height: 50vh;
   padding: 0 24px;
   background: linear-gradient(160deg, #0a1510, #1a2e23, #0e1a13);
   text-align: center; position: relative; overflow: hidden;
