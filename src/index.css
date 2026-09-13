@@ -679,15 +679,16 @@ button { cursor: pointer; font-family: var(--font-body); }
   flex: 0 0 300px;
   scroll-snap-align: none;
   position: relative;
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
   background: white;
   border: 1px solid var(--color-border);
   transition: all 0.3s cubic-bezier(.22,1,.36,1);
   cursor: pointer;
   display: flex; flex-direction: column;
-  flex: 0 0 300px;
-  height: 380px;
+  min-width: 260px;
+  max-width: 280px;
+  max-height: 540px;
 }
 .most-pick-card:hover {
   transform: translateY(-6px);
@@ -696,7 +697,7 @@ button { cursor: pointer; font-family: var(--font-body); }
 }
 .most-pick-img {
   width: 100%;
-  height: 180px;
+  height: 190px;
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(.22,1,.36,1);
   flex-shrink: 0;
@@ -1332,8 +1333,8 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   .cat-card-img { height: 160px; }
   .cat-card-body { padding: 16px; }
 
-  .most-pick-card { flex: 0 0 260px; height: 340px; }
-  .most-pick-img { height: 150px; }
+  .most-pick-card { min-width: 240px; max-width: 260px; max-height: 480px; }
+  .most-pick-img { height: 160px; }
   .most-pick-body { padding: 12px 16px 16px; }
 
   .testimonial-card { flex: 0 0 85vw; padding: 20px; }
