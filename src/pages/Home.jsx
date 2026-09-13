@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useContent } from '../store/ContentContext'
 import RevealDiv from '../components/RevealDiv'
-import { allProducts, getFeaturedProducts } from '../data/products'
+import { getProductsByCategory, categories } from '../data/products'
 import WhatsAppButton from '../components/WhatsAppButton'
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
   const pickTrackRef = useRef(null)
   const [activePick, setActivePick] = useState(0)
 
-  const mostPickItems = getFeaturedProducts().slice(0, 12)
+  const mostPickItems = categories.map(c => getProductsByCategory(c.slug).slice(0, 2)).flat()
 
   const getVisiblePickCount = () => {
     if (typeof window === 'undefined') return 3
