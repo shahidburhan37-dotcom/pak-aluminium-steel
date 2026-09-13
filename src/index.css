@@ -152,9 +152,23 @@ button { cursor: pointer; font-family: var(--font-body); }
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(0);
+}
+.navbar.hidden-nav {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+.navbar.visible {
+  transform: translateY(0);
 }
 .navbar.scrolled {
   box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+}
+.topbar.hidden {
+  opacity: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
 }
 .nav-gradient-line {
   height: 2px;

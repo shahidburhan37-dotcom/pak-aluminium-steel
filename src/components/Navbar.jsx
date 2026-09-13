@@ -1,17 +1,30 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useContent } from '../store/ContentContext'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [visible, setVisible] = useState(true)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [hoveredLink, setHoveredLink] = useState(null)
+  const lastScroll = useRef(0)
   const location = useLocation()
   const navigate = useNavigate()
   const { content } = useContent()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => {
+      const y = window.scrollY
+      setScrolled(y > 50)
+      if (y < 10) {
+        setVisible(true)
+      } else if (y > lastScroll.current && y > 100) {
+        setVisible(false)
+      } else if (y < lastScroll.current) {
+        setVisible(true)
+      }
+      lastScroll.current = y
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -36,13 +49,13 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="topbar">
+      <div className={`topbar ${scrolled ? 'hidden' : ''}`}>
         <span className="animate-topbar-glow">
           Premium Aluminium & Steel Fabrication — Free Consultation & Quotes
         </span>
       </div>
 
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${visible ? 'visible' : 'hidden-nav'}`}>
         <div className="navbar-inner">
           <Link to="/" className="nav-logo">
             <img src="/images/logo-new.webp" alt="Pak Aluminium & Steel" style={{ height: 40, width: 40, borderRadius: 8, objectFit: 'cover' }} />
