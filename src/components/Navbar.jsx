@@ -38,13 +38,14 @@ export default function Navbar() {
 
   return (
     <>
-      <div className={`topbar ${scrolled ? 'hidden' : ''}`}>
-        <span className="animate-topbar-glow">
-          Premium Aluminium & Steel Fabrication — Free Consultation & Quotes
-        </span>
-      </div>
+      <header className="site-header">
+        <div className="topbar">
+          <span className="animate-topbar-glow">
+            Premium Aluminium & Steel Fabrication — Free Consultation & Quotes
+          </span>
+        </div>
 
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="navbar-inner">
           <Link to="/" className="nav-logo">
             <img src="/images/logo-new.webp" alt="Pak Aluminium & Steel" style={{ height: 40, width: 40, borderRadius: 8, objectFit: 'cover' }} />
@@ -127,6 +128,7 @@ export default function Navbar() {
 
         <div className="nav-gradient-line" />
       </nav>
+      </header>
 
       <div className={`mobile-menu ${mobileOpen ? 'open' : ''}`}>
         <button className="mobile-close" onClick={() => setMobileOpen(false)} aria-label="Close menu">

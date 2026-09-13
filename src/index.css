@@ -131,7 +131,7 @@ button { cursor: pointer; font-family: var(--font-body); }
   background: white;
   color: var(--color-text); text-align: center;
   padding: 8px 16px; font-size: 12px; font-weight: 600;
-  letter-spacing: 0.3px; position: relative; z-index: 1001;
+  letter-spacing: 0.3px; position: relative; z-index: 1002;
   overflow: hidden;
   border-bottom: 1px solid var(--color-border);
 }
@@ -145,10 +145,16 @@ button { cursor: pointer; font-family: var(--font-body); }
 }
 
 /* ═══════════════════════════════════════════════
+   HEADER (fixed wrapper)
+   ═══════════════════════════════════════════════ */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+}
+
+/* ═══════════════════════════════════════════════
    NAVBAR
    ═══════════════════════════════════════════════ */
 .navbar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   padding: 0;
   background: linear-gradient(135deg, #0a1510, #112e24);
   backdrop-filter: blur(24px);
@@ -158,13 +164,7 @@ button { cursor: pointer; font-family: var(--font-body); }
 .navbar.scrolled {
   box-shadow: 0 4px 30px rgba(0,0,0,0.15);
 }
-.nav-spacer { height: 60px; }
-.topbar.hidden {
-  opacity: 0;
-  height: 0;
-  padding: 0;
-  overflow: hidden;
-}
+.nav-spacer { height: 96px; }
 .nav-gradient-line {
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--color-accent), var(--color-accent-light), var(--color-accent), transparent);
