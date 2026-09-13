@@ -153,15 +153,7 @@ button { cursor: pointer; font-family: var(--font-body); }
   background: linear-gradient(135deg, #0a1510, #112e24);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
-  transform: translateY(0);
-}
-.navbar.hidden-nav {
-  transform: translateY(-100%);
-  pointer-events: none;
-}
-.navbar.visible {
-  transform: translateY(0);
+  transition: box-shadow 0.35s ease;
 }
 .navbar.scrolled {
   box-shadow: 0 4px 30px rgba(0,0,0,0.15);
