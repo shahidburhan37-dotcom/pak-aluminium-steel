@@ -148,7 +148,7 @@ button { cursor: pointer; font-family: var(--font-body); }
    NAVBAR
    ═══════════════════════════════════════════════ */
 .navbar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  position: sticky; top: 0; z-index: 1000;
   padding: 0;
   background: linear-gradient(135deg, #0a1510, #112e24);
   backdrop-filter: blur(24px);
@@ -179,7 +179,6 @@ button { cursor: pointer; font-family: var(--font-body); }
   transition: opacity 0.4s ease;
 }
 .navbar.scrolled .nav-gradient-line { opacity: 1; }
-.nav-spacer { height: 60px; }
 .navbar-inner {
   max-width: 1200px;
   width: 100%;
