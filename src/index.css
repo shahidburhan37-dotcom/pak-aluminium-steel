@@ -478,6 +478,9 @@ button { cursor: pointer; font-family: var(--font-body); }
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 14px; font-weight: 600; color: var(--color-accent);
   transition: gap var(--t-fast); margin-top: auto;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
 }
 .cat-card:hover .cat-card-link { gap: 10px; }
 

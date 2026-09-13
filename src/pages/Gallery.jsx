@@ -108,8 +108,8 @@ export default function Gallery() {
         <section key={section.id} id={section.slug} className="section">
           <RevealDiv type="up" style={{ textAlign: 'center' }}>
             <div className="section-label" style={{ justifyContent: 'center' }}>{section.title}</div>
-            <h2 className="section-title">{section.desc}</h2>
-            <Link to={`/${section.slug}`} style={{ display: 'inline-flex', marginTop: 16, fontSize: 14, fontWeight: 600, color: 'var(--color-accent)', gap: 6, alignItems: 'center' }}>
+            <h2 className="section-title" style={{ textAlign: 'center' }}>{section.desc}</h2>
+            <Link to={`/${section.slug}`} style={{ display: 'inline-flex', marginTop: 16, fontSize: 14, fontWeight: 600, color: 'var(--color-accent)', gap: 6, alignItems: 'center', textAlign: 'center' }}>
               View All {section.title}
               <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </Link>
