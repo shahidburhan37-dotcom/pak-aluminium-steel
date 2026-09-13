@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import RevealDiv from '../components/RevealDiv'
 import { allProducts } from '../data/products'
@@ -33,77 +33,22 @@ const sectionTabs = [
   { id: 'doors', label: 'Doors' },
 ]
 
-function GalleryCarousel({ data }) {
-  const trackRef = useRef(null)
-  const [active, setActive] = useState(0)
-
-  const getCardWidth = () => {
-    const track = trackRef.current
-    if (!track) return 420
-    const card = track.querySelector('.gallery-card')
-    if (!card) return 420
-    return card.offsetWidth + 20
-  }
-
-  const scroll = (dir) => {
-    const track = trackRef.current
-    if (!track) return
-    const cw = getCardWidth()
-    track.scrollBy({ left: dir === 'next' ? cw : -cw, behavior: 'smooth' })
-  }
-
-  const handleScroll = () => {
-    const track = trackRef.current
-    if (!track) return
-    const cw = getCardWidth()
-    setActive(Math.round(track.scrollLeft / cw))
-  }
-
-  useEffect(() => {
-    handleScroll()
-  }, [])
-
-  const totalDots = data.items.length
-
+function MasonryGrid({ items }) {
   return (
-    <div className="carousel-wrapper">
-      <div className="carousel-track" ref={trackRef} onScroll={handleScroll}>
-        {data.items.map((item) => (
-          <Link to={`/product/${item.slug}`} key={item.name} className="gallery-card" style={{ textDecoration: 'none' }}>
-            <div className="gallery-card-img-wrapper">
-              <img src={item.img} alt={item.name} className="gallery-card-img" loading="lazy" />
-              <div className="gallery-card-overlay">
-                <div className="gallery-card-name">{item.name}</div>
-                <div className="gallery-card-desc">{item.desc}</div>
-                <div className="gallery-card-btn">
-                  View Collection
-                  <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-              </div>
+    <div className="masonry-grid">
+      {items.map((item, i) => (
+        <Link to={`/product/${item.slug}`} key={item.name} className="masonry-item" style={{ textDecoration: 'none' }}>
+          <img src={item.img} alt={item.name} className="masonry-img" loading="lazy" />
+          <div className="masonry-overlay">
+            <div className="masonry-name">{item.name}</div>
+            <div className="masonry-desc">{item.desc}</div>
+            <div className="masonry-btn">
+              View Details
+              <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
-          </Link>
-        ))}
-      </div>
-
-      <div className="carousel-nav" style={{ justifyContent: 'center', marginTop: 24 }}>
-        <button className="carousel-nav-btn" onClick={() => scroll('prev')} aria-label="Previous">
-          <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <button className="carousel-nav-btn" onClick={() => scroll('next')} aria-label="Next">
-          <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
-
-      <div className="carousel-dots">
-        {Array.from({ length: totalDots }, (_, i) => (
-          <button
-            key={i}
-            className={`carousel-dot ${i === active ? 'active' : ''}`}
-            onClick={() => trackRef.current?.scrollTo({ left: i * getCardWidth(), behavior: 'smooth' })}
-            aria-label={`Go to slide ${i + 1}`}
-          />
-        ))}
-      </div>
+          </div>
+        </Link>
+      ))}
     </div>
   )
 }
@@ -144,7 +89,7 @@ export default function Gallery() {
               <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </Link>
           </RevealDiv>
-          <GalleryCarousel data={section} />
+          <MasonryGrid items={section.items} />
         </section>
       ))}
     </>
