@@ -323,8 +323,6 @@ button { cursor: pointer; font-family: var(--font-body); }
 .hero {
   position: relative;
   min-height: 85vh;
-  margin-top: -96px;
-  padding-top: 96px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1208,8 +1206,7 @@ button { cursor: pointer; font-family: var(--font-body); }
    PAGE HEADER (inner pages)
    ═══════════════════════════════════════════════ */
 .page-header {
-  padding: 120px 24px 40px;
-  margin-top: -96px;
+  padding: 80px 24px 40px;
   background: linear-gradient(160deg, #0a1510, #1a2e23, #0e1a13);
   text-align: center; position: relative; overflow: hidden;
 }
