@@ -45,7 +45,7 @@ export default function Navbar() {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="navbar-inner">
           <Link to="/" className="nav-logo">
-            <img src="/images/logo.jpeg" alt="Pak Aluminium & Steel" style={{ height: 40, width: 40, borderRadius: 8, objectFit: 'cover' }} />
+            <img src="/images/logo-new.webp" alt="Pak Aluminium & Steel" style={{ height: 40, width: 40, borderRadius: 8, objectFit: 'cover' }} />
             <div className="nav-logo-text-wrap">
               <span className="nav-logo-text">Pak Aluminium</span>
               <span className="nav-logo-sub">& Steel</span>

@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-              <img src="/images/logo.jpeg" alt="Pak Aluminium & Steel" style={{ height: 36, width: 36, borderRadius: 8, objectFit: 'cover' }} />
+              <img src="/images/logo-new.webp" alt="Pak Aluminium & Steel" style={{ height: 36, width: 36, borderRadius: 8, objectFit: 'cover' }} />
               <div className="footer-brand-name">{content.footer.brand}</div>
             </div>
             <p className="footer-brand-desc">
