@@ -1,20 +1,29 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, lazy, Suspense } from 'react'
 import { ContentProvider } from './store/ContentContext'
 import Layout from './components/Layout'
 import ErrorBoundary from './components/ErrorBoundary'
 import Home from './pages/Home'
-import Windows from './pages/Windows'
-import Railings from './pages/Railings'
-import Doors from './pages/Doors'
-import ShowerCabins from './pages/ShowerCabins'
-import Terraces from './pages/Terraces'
-import Panels from './pages/Panels'
-import About from './pages/About'
-import Gallery from './pages/Gallery'
-import ProductDetail from './pages/ProductDetail'
-import Admin from './pages/Admin'
-import NotFound from './pages/NotFound'
+
+const Windows = lazy(() => import('./pages/Windows'))
+const Railings = lazy(() => import('./pages/Railings'))
+const Doors = lazy(() => import('./pages/Doors'))
+const ShowerCabins = lazy(() => import('./pages/ShowerCabins'))
+const Terraces = lazy(() => import('./pages/Terraces'))
+const Panels = lazy(() => import('./pages/Panels'))
+const About = lazy(() => import('./pages/About'))
+const Gallery = lazy(() => import('./pages/Gallery'))
+const ProductDetail = lazy(() => import('./pages/ProductDetail'))
+const Admin = lazy(() => import('./pages/Admin'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+
+function PageLoader() {
+  return (
+    <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ width: 32, height: 32, border: '3px solid var(--color-border)', borderTopColor: 'var(--color-accent)', borderRadius: '50%', animation: 'spin 0.6s linear infinite' }} />
+    </div>
+  )
+}
 
 function ScrollToHash() {
   const { hash, pathname, state } = useLocation()
@@ -99,6 +108,7 @@ export default function App() {
         <ErrorBoundary>
           <ScrollToHash />
           <Layout>
+          <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/windows" element={<Windows />} />
@@ -113,6 +123,7 @@ export default function App() {
             <Route path="/admin" element={<AdminGuard><Admin /></AdminGuard>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
           </Layout>
         </ErrorBoundary>
       </BrowserRouter>

@@ -68,16 +68,17 @@ export default function Home() {
       {/* Hero */}
       <section className="hero">
         {heroImages.map((img, i) => (
-          <div
+          <img
             key={i}
+            src={img}
+            alt=""
             className="hero-bg"
             style={{
-              backgroundImage: `url(${img})`,
               opacity: heroSlide === i ? 1 : 0,
               transition: 'opacity 1s ease-in-out',
-              position: 'absolute',
-              inset: 0,
             }}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            fetchPriority={i === 0 ? 'high' : 'low'}
           />
         ))}
         <div className="hero-overlay" />
