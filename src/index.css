@@ -26,7 +26,7 @@
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); -webkit-font-smoothing: antialiased; margin: 0; }
 #root { min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
-main { flex: 1; overflow-x: hidden; }
+main { flex: 1; overflow-x: hidden; padding-top: 96px; }
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
 button { cursor: pointer; font-family: var(--font-body); }
@@ -164,7 +164,6 @@ button { cursor: pointer; font-family: var(--font-body); }
 .navbar.scrolled {
   box-shadow: 0 4px 30px rgba(0,0,0,0.15);
 }
-.nav-spacer { height: 96px; }
 .nav-gradient-line {
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--color-accent), var(--color-accent-light), var(--color-accent), transparent);

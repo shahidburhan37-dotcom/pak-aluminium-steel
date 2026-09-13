@@ -11,7 +11,6 @@ export default function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <div className="nav-spacer" />
       <main className="animate-page-in">
         {children}
       </main>
