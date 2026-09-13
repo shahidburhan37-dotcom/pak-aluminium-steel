@@ -124,21 +124,6 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hero-dots animate-hero-up delay-5">
-          {heroImages.map((_, i) => (
-            <button
-              key={i}
-              className={`hero-dot ${heroSlide === i ? 'active' : ''}`}
-              onClick={() => setHeroSlide(i)}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
-        </div>
-
-        <div className="hero-scroll animate-hero-up delay-5">
-          <span>Scroll</span>
-          <div className="hero-scroll-line" />
-        </div>
       </section>
 
       {/* Categories */}
