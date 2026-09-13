@@ -1,18 +1,29 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useContent } from '../store/ContentContext'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [hidden, setHidden] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [hoveredLink, setHoveredLink] = useState(null)
+  const lastScroll = useRef(0)
   const location = useLocation()
   const navigate = useNavigate()
   const { content } = useContent()
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 50)
+      const y = window.scrollY
+      setScrolled(y > 50)
+      if (y < 10) {
+        setHidden(false)
+      } else if (y > lastScroll.current && y > 100) {
+        setHidden(true)
+      } else if (y < lastScroll.current) {
+        setHidden(false)
+      }
+      lastScroll.current = y
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -38,8 +49,8 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="site-header">
-        <div className="topbar">
+      <header className={`site-header ${hidden ? 'header-hidden' : ''}`}>
+        <div className={`topbar ${scrolled ? 'topbar-hidden' : ''}`}>
           <span className="animate-topbar-glow">
             Premium Aluminium & Steel Fabrication — Free Consultation & Quotes
           </span>
