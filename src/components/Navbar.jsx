@@ -76,17 +76,29 @@ export default function Navbar() {
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ marginLeft: 4, transition: 'transform 0.2s', transform: hoveredLink === 'cat' ? 'rotate(180deg)' : 'rotate(0)' }}><path d="M6 9l6 6 6-6"/></svg>
               </span>
               <div className="nav-dropdown-menu">
-                <Link to="/windows">
-                  <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=100&q=60" alt="Windows" />
-                  <span>Windows</span>
-                </Link>
                 <Link to="/railings">
-                  <img src="https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=100&q=60" alt="Railings" />
+                  <img src="/images/products/railings/frameless-glass-balcony-railing.webp" alt="Railings" />
                   <span>Railings</span>
                 </Link>
                 <Link to="/doors">
-                  <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=100&q=60" alt="Doors" />
+                  <img src="/images/products/doors/slim-profile-pivot-door.webp" alt="Doors" />
                   <span>Doors</span>
+                </Link>
+                <Link to="/shower-cabins">
+                  <img src="/images/products/shower-cabins/frameless-tempered-glass-shower.webp" alt="Shower Cabins" />
+                  <span>Shower Cabins</span>
+                </Link>
+                <Link to="/terraces">
+                  <img src="/images/products/terraces/motorized-aluminum-pergola.webp" alt="Terraces" />
+                  <span>Terraces</span>
+                </Link>
+                <Link to="/windows">
+                  <img src="/images/products/glass/curtain-walling-facade.webp" alt="Glass" />
+                  <span>Architectural Glass</span>
+                </Link>
+                <Link to="/panels">
+                  <img src="/images/products/panels/aluminum-composite-panel-cladding.webp" alt="Panels" />
+                  <span>Composite Panels</span>
                 </Link>
               </div>
             </li>
@@ -125,9 +137,12 @@ export default function Navbar() {
           </Link>
         ))}
         <div className="mobile-menu-divider" />
-        <Link to="/windows" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.3s' }}>Windows</Link>
-        <Link to="/railings" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.35s' }}>Railings</Link>
-        <Link to="/doors" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.4s' }}>Doors</Link>
+        <Link to="/railings" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.3s' }}>Railings</Link>
+        <Link to="/doors" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.35s' }}>Doors</Link>
+        <Link to="/shower-cabins" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.4s' }}>Shower Cabins</Link>
+        <Link to="/terraces" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.45s' }}>Terraces</Link>
+        <Link to="/windows" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.5s' }}>Architectural Glass</Link>
+        <Link to="/panels" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.55s' }}>Composite Panels</Link>
         <div className="mobile-menu-divider" />
         <button onClick={() => { setMobileOpen(false); scrollTo('#whatsapp') }} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 20, fontWeight: 600, color: 'var(--color-text)', animationDelay: '0.5s', padding: 0 }}>
           Contact Us

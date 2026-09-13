@@ -717,15 +717,12 @@ button { cursor: pointer; font-family: var(--font-body); }
   color: var(--color-text);
   margin-bottom: 6px;
 }
-.most-pick-rating {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+.most-pick-desc {
   margin-top: 8px;
   font-size: 13px;
-  color: #d4a017;
+  color: var(--color-text-muted);
+  line-height: 1.4;
 }
-.most-pick-rating span { color: var(--color-text-muted); }
 
 /* ═══════════════════════════════════════════════
    GALLERY — MODERN CAROUSEL

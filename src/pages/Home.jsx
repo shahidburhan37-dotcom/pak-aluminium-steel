@@ -2,7 +2,8 @@ import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useContent } from '../store/ContentContext'
 import RevealDiv from '../components/RevealDiv'
-import { allProducts } from '../data/products'
+import { allProducts, getFeaturedProducts } from '../data/products'
+import WhatsAppButton from '../components/WhatsAppButton'
 
 export default function Home() {
   const { content } = useContent()
@@ -10,7 +11,7 @@ export default function Home() {
   const pickTrackRef = useRef(null)
   const [activePick, setActivePick] = useState(0)
 
-  const mostPickItems = allProducts.filter(p => [4.9, 4.8].includes(p.rating)).slice(0, 12)
+  const mostPickItems = getFeaturedProducts().slice(0, 12)
 
   const getVisiblePickCount = () => {
     if (typeof window === 'undefined') return 3
@@ -189,7 +190,7 @@ export default function Home() {
         <div className="carousel-wrapper">
           <div className="carousel-track" ref={pickTrackRef} onScroll={handlePickScroll}>
             {mostPickItems.map((item) => (
-              <Link to={`/product/${item.slug}`} key={item.name} style={{ textDecoration: 'none' }}>
+              <Link to={`/product/${item.slug}`} key={item.slug || item.name} style={{ textDecoration: 'none' }}>
                 <div className="most-pick-card" style={{ cursor: 'pointer' }}>
                   <div style={{ overflow: 'hidden' }}>
                     <img src={item.img} alt={item.name} className="most-pick-img" loading="lazy" />
@@ -197,10 +198,7 @@ export default function Home() {
                   <div className="most-pick-body">
                     <div className="most-pick-tag">{item.tag}</div>
                     <div className="most-pick-name">{item.name}</div>
-                    <div className="most-pick-rating">
-                      {'★'.repeat(Math.floor(item.rating))}
-                      <span>{item.rating} ({item.reviews} reviews)</span>
-                    </div>
+                    <div className="most-pick-desc">{item.desc}</div>
                   </div>
                 </div>
               </Link>

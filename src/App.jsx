@@ -7,6 +7,9 @@ import Home from './pages/Home'
 import Windows from './pages/Windows'
 import Railings from './pages/Railings'
 import Doors from './pages/Doors'
+import ShowerCabins from './pages/ShowerCabins'
+import Terraces from './pages/Terraces'
+import Panels from './pages/Panels'
 import About from './pages/About'
 import Gallery from './pages/Gallery'
 import ProductDetail from './pages/ProductDetail'
@@ -101,6 +104,9 @@ export default function App() {
             <Route path="/windows" element={<Windows />} />
             <Route path="/railings" element={<Railings />} />
             <Route path="/doors" element={<Doors />} />
+            <Route path="/shower-cabins" element={<ShowerCabins />} />
+            <Route path="/terraces" element={<Terraces />} />
+            <Route path="/panels" element={<Panels />} />
             <Route path="/about" element={<About />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/product/:slug" element={<ProductDetail />} />

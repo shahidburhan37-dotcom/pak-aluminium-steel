@@ -1,67 +1,48 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import RevealDiv from '../components/RevealDiv'
-import { getProductsByCategory, getFilterTypes } from '../data/products'
+import { getProductsByCategory } from '../data/products'
+import WhatsAppButton from '../components/WhatsAppButton'
 
-const filters = getFilterTypes('Railings')
+const products = getProductsByCategory('railings')
 
 export default function Railings() {
-  const [active, setActive] = useState('All')
-  const railings = getProductsByCategory('Railings')
-  const filtered = active === 'All' ? railings : railings.filter(r => r.type === active)
+  const [filter, setFilter] = useState('All')
+  const types = ['All', ...new Set(products.map(p => p.tag))]
+  const filtered = filter === 'All' ? products : products.filter(p => p.tag === filter)
 
   return (
     <>
       <div className="page-header">
-        <h1 className="page-header-title animate-hero-up delay-0">Railings Collection</h1>
+        <h1 className="page-header-title animate-hero-up delay-0">Railings & Balustrades</h1>
         <p className="page-header-desc animate-hero-up delay-1">
-          From sleek glass panels to classic ironwork — railings that define safety and sophistication.
+          Premium railings for balconies, stairs, and terraces — glass, steel, aluminum, and custom ironwork.
         </p>
         <div className="filter-tabs animate-hero-up delay-2">
-          {filters.map(f => (
-            <button
-              key={f}
-              className={`filter-tab ${active === f ? 'active' : ''}`}
-              onClick={() => setActive(f)}
-            >
-              {f}
-            </button>
+          {types.map(t => (
+            <button key={t} className={`filter-tab ${filter === t ? 'active' : ''}`} onClick={() => setFilter(t)}>{t}</button>
           ))}
         </div>
       </div>
-
       <section className="section">
-        <div className="showcase-grid">
-          {filtered.map((r, i) => (
-            <RevealDiv key={r.name} type={i % 2 === 0 ? 'left' : 'right'}>
-              <Link to={`/product/${r.slug}`} style={{ textDecoration: 'none' }}>
-                <div className="showcase-card" style={{ animationDelay: `${i * 0.05}s`, cursor: 'pointer' }}>
-                  <img src={r.img} alt={r.name} className="showcase-card-img" loading="lazy" />
-                  <div className="showcase-card-overlay">
-                    <div className="showcase-card-name">{r.name}</div>
-                    <div className="showcase-card-type">{r.type} — {r.desc}</div>
-                  </div>
-                </div>
-              </Link>
-            </RevealDiv>
+        <div className="masonry-grid">
+          {filtered.map(item => (
+            <Link to={`/product/${item.slug}`} key={item.slug} className="masonry-item" style={{ textDecoration: 'none' }}>
+              <img src={item.img} alt={item.name} className="masonry-img" loading="lazy" />
+              <div className="masonry-overlay">
+                <div className="masonry-name">{item.name}</div>
+                <div className="masonry-desc">{item.desc}</div>
+                <div className="masonry-btn">View Details <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+              </div>
+            </Link>
           ))}
         </div>
-
-        <RevealDiv type="up">
-          <div style={{ textAlign: 'center', marginTop: 64 }}>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 32, fontWeight: 700, marginBottom: 12 }}>
-              Custom Railing Solutions
-            </h2>
-            <p style={{ color: 'var(--color-text-muted)', marginBottom: 24, fontSize: 16 }}>
-              Every project is unique. We fabricate railings tailored to your space, style, and safety requirements.
-            </p>
-            <Link to="/about#contact">
-              <button className="cta-btn" style={{ background: 'var(--color-accent)', color: 'white' }}>
-                Get a Free Estimate
-              </button>
-            </Link>
-          </div>
-        </RevealDiv>
+        <div style={{ textAlign: 'center', marginTop: 40 }}>
+          <RevealDiv type="up">
+            <p style={{ color: 'var(--color-text-muted)', marginBottom: 16 }}>Can't find what you're looking for?</p>
+            <WhatsAppButton />
+          </RevealDiv>
+        </div>
       </section>
     </>
   )
