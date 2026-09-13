@@ -83,8 +83,8 @@ export default function Home() {
         <div className="hero-overlay" />
 
         <div className="hero-content">
-          <div className="hero-icon animate-hero-up delay-0">
-            <img src="/images/logo-new.webp" alt="Pak Aluminium & Steel" style={{ width: 80, height: 80, objectFit: 'contain', borderRadius: 12 }} />
+          <div className="hero-logo-clean animate-hero-up delay-0">
+            <img src="/images/logo-new.webp" alt="Pak Aluminium & Steel" style={{ width: 100, height: 100, objectFit: 'contain', filter: 'drop-shadow(0 4px 20px rgba(0,0,0,0.4))' }} />
           </div>
           <h1 className="hero-title animate-hero-up delay-1">
             {content.hero.title.split('\n').map((line, i) => (
