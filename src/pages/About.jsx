@@ -43,7 +43,7 @@ const timeline = [
 ]
 
 const team = [
-  { name: 'Ahmed Khan', role: 'Founder & CEO', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80' },
+  { name: 'Basit', role: 'Founder & CEO', img: '/images/basit-owner.webp' },
   { name: 'Sara Malik', role: 'Head of Design', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80' },
   { name: 'Usman Ali', role: 'Production Manager', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80' },
   { name: 'Fatima Noor', role: 'Client Relations', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80' },
