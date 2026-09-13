@@ -8,6 +8,7 @@ export default function ContactForm() {
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
   const [sending, setSending] = useState(false)
+  const [touched, setTouched] = useState(false)
 
   const validate = () => {
     const e = {}
@@ -22,6 +23,7 @@ export default function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setTouched(true)
     const errs = validate()
     setErrors(errs)
     if (Object.keys(errs).length > 0) return
@@ -124,20 +126,20 @@ export default function ContactForm() {
             <form className="contact-form-dark" onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="form-group-dark">
-                  <label>Full Name {errors.name && <span style={{ color: '#ff6b6b', fontSize: 12 }}>{errors.name}</span>}</label>
+                  <label>Full Name {touched && errors.name && <span style={{ color: '#ff6b6b', fontSize: 12 }}>{errors.name}</span>}</label>
                   <input type="text" placeholder="Your name" value={form.name} onChange={handleChange('name')} />
                 </div>
                 <div className="form-group-dark">
-                  <label>Phone Number {errors.phone && <span style={{ color: '#ff6b6b', fontSize: 12 }}>{errors.phone}</span>}</label>
+                  <label>Phone Number {touched && errors.phone && <span style={{ color: '#ff6b6b', fontSize: 12 }}>{errors.phone}</span>}</label>
                   <input type="tel" placeholder="+92 3XX XXXXXXX" value={form.phone} onChange={handleChange('phone')} />
                 </div>
               </div>
               <div className="form-group-dark">
-                <label>Email Address {errors.email && <span style={{ color: '#ff6b6b', fontSize: 12 }}>{errors.email}</span>}</label>
+                <label>Email Address {touched && errors.email && <span style={{ color: '#ff6b6b', fontSize: 12 }}>{errors.email}</span>}</label>
                 <input type="email" placeholder="you@example.com" value={form.email} onChange={handleChange('email')} />
               </div>
               <div className="form-group-dark">
-                <label>Product Interest {errors.product && <span style={{ color: '#ff6b6b', fontSize: 12 }}>{errors.product}</span>}</label>
+                <label>Product Interest {touched && errors.product && <span style={{ color: '#ff6b6b', fontSize: 12 }}>{errors.product}</span>}</label>
                 <select value={form.product} onChange={handleChange('product')}>
                   <option value="">Select a product</option>
                   <option>Windows</option>
@@ -148,7 +150,7 @@ export default function ContactForm() {
                 </select>
               </div>
               <div className="form-group-dark">
-                <label>Project Details {errors.message && <span style={{ color: '#ff6b6b', fontSize: 12 }}>{errors.message}</span>}</label>
+                <label>Project Details {touched && errors.message && <span style={{ color: '#ff6b6b', fontSize: 12 }}>{errors.message}</span>}</label>
                 <textarea placeholder="Tell us about your project — dimensions, style preferences, timeline..." value={form.message} onChange={handleChange('message')} />
               </div>
               <button type="submit" className="contact-submit-dark" disabled={sending}>

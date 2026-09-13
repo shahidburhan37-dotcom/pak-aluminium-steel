@@ -13,6 +13,7 @@ export default function ProductDetail() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' })
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
+  const [touched, setTouched] = useState(false)
 
   useEffect(() => {
     if (product) {
@@ -44,6 +45,7 @@ export default function ProductDetail() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setTouched(true)
     const errs = validate()
     setErrors(errs)
     if (Object.keys(errs).length > 0) return
@@ -144,11 +146,11 @@ export default function ProductDetail() {
                   <form onSubmit={handleSubmit}>
                     <div style={{ marginBottom: 16 }}>
                       <input type="text" placeholder="Your Name" value={form.name} onChange={handleChange('name')} style={{ width: '100%', padding: '14px 16px', borderRadius: 10, border: errors.name ? '1px solid #ff6b6b' : '1px solid rgba(255,255,255,0.15)', background: 'rgba(255,255,255,0.08)', color: 'white', fontSize: 14, outline: 'none', boxSizing: 'border-box' }} />
-                      {errors.name && <span style={{ color: '#ff6b6b', fontSize: 12 }}>{errors.name}</span>}
+                      {touched && errors.name && <span style={{ color: '#ff6b6b', fontSize: 12 }}>{errors.name}</span>}
                     </div>
                     <div style={{ marginBottom: 16 }}>
                       <input type="tel" placeholder="Phone Number" value={form.phone} onChange={handleChange('phone')} style={{ width: '100%', padding: '14px 16px', borderRadius: 10, border: errors.phone ? '1px solid #ff6b6b' : '1px solid rgba(255,255,255,0.15)', background: 'rgba(255,255,255,0.08)', color: 'white', fontSize: 14, outline: 'none', boxSizing: 'border-box' }} />
-                      {errors.phone && <span style={{ color: '#ff6b6b', fontSize: 12 }}>{errors.phone}</span>}
+                      {touched && errors.phone && <span style={{ color: '#ff6b6b', fontSize: 12 }}>{errors.phone}</span>}
                     </div>
                     <div style={{ marginBottom: 16 }}>
                       <input type="email" placeholder="Email Address" value={form.email} onChange={handleChange('email')} style={{ width: '100%', padding: '14px 16px', borderRadius: 10, border: errors.email ? '1px solid #ff6b6b' : '1px solid rgba(255,255,255,0.15)', background: 'rgba(255,255,255,0.08)', color: 'white', fontSize: 14, outline: 'none', boxSizing: 'border-box' }} />
