@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import RevealDiv from '../components/RevealDiv'
 import { getProductsByCategory } from '../data/products'
@@ -7,32 +7,23 @@ import WhatsAppButton from '../components/WhatsAppButton'
 const products = getProductsByCategory('terraces')
 
 export default function Terraces() {
-  const [filter, setFilter] = useState('All')
-
   useEffect(() => {
     document.title = 'Terraces & Pergolas — Pak Aluminium & Steel'
     const desc = document.querySelector('meta[name="description"]')
     if (desc) desc.setAttribute('content', 'Motorized pergolas, glass enclosures, and outdoor living solutions. Premium terrace and pergola systems in Lahore.')
   }, [])
-  const types = ['All', ...new Set(products.map(p => p.tag))]
-  const filtered = filter === 'All' ? products : products.filter(p => p.tag === filter)
 
   return (
     <>
       <div className="page-header">
         <h1 className="page-header-title animate-hero-up delay-0">Terraces & Pergolas</h1>
         <p className="page-header-desc animate-hero-up delay-1">
-          Transform your outdoor living with premium pergolas, terrace enclosures, and glazing systems.
+          Motorized pergolas, glass enclosures, and outdoor living solutions.
         </p>
-        <div className="filter-tabs animate-hero-up delay-2">
-          {types.map(t => (
-            <button key={t} className={`filter-tab ${filter === t ? 'active' : ''}`} onClick={() => setFilter(t)}>{t}</button>
-          ))}
-        </div>
       </div>
       <section className="section">
         <div className="masonry-grid">
-          {filtered.map(item => (
+          {products.map(item => (
             <Link to={`/product/${item.slug}`} key={item.slug} className="masonry-item" style={{ textDecoration: 'none' }}>
               <img src={item.img} alt={item.name} className="masonry-img" loading="lazy" />
               <div className="masonry-overlay">
