@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useContent } from '../store/ContentContext'
 import RevealDiv from '../components/RevealDiv'
@@ -13,6 +13,14 @@ export default function ProductDetail() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' })
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
+
+  useEffect(() => {
+    if (product) {
+      document.title = `${product.name} — Pak Aluminium & Steel`
+      const desc = document.querySelector('meta[name="description"]')
+      if (desc) desc.setAttribute('content', product.description || `${product.name} — Premium fabrication by Pak Aluminium & Steel in Lahore.`)
+    }
+  }, [product])
   const [sending, setSending] = useState(false)
 
   if (!product) {

@@ -83,6 +83,12 @@ function CategoryCarousel({ data }) {
 }
 
 export default function Gallery() {
+  useEffect(() => {
+    document.title = 'Product Gallery — Pak Aluminium & Steel'
+    const desc = document.querySelector('meta[name="description"]')
+    if (desc) desc.setAttribute('content', 'Explore our complete range of 124+ premium fabrication products — railings, doors, shower cabins, terraces, glass, and composite panels.')
+  }, [])
+
   const scrollToSection = (id) => {
     const el = document.getElementById(id)
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })

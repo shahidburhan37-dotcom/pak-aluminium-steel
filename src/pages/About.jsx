@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useContent } from '../store/ContentContext'
 import RevealDiv from '../components/RevealDiv'
@@ -52,6 +53,13 @@ const awards = []
 
 export default function About() {
   const { content } = useContent()
+
+  useEffect(() => {
+    document.title = 'About Us — Pak Aluminium & Steel'
+    const desc = document.querySelector('meta[name="description"]')
+    if (desc) desc.setAttribute('content', 'Learn about Pak Aluminium & Steel — 25+ years of precision fabrication in Lahore, Pakistan. Our story, milestones, and craftsmanship.')
+  }, [])
+
   return (
     <>
       <div className="page-header">

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import RevealDiv from '../components/RevealDiv'
 import { getProductsByCategory } from '../data/products'
@@ -8,6 +8,12 @@ const products = getProductsByCategory('railings')
 
 export default function Railings() {
   const [filter, setFilter] = useState('All')
+
+  useEffect(() => {
+    document.title = 'Railings & Balustrades — Pak Aluminium & Steel'
+    const desc = document.querySelector('meta[name="description"]')
+    if (desc) desc.setAttribute('content', 'Premium glass, steel, and aluminium railings for balconies, stairs, and terraces. Frameless, frosted, and custom designs available in Lahore.')
+  }, [])
   const types = ['All', ...new Set(products.map(p => p.tag))]
   const filtered = filter === 'All' ? products : products.filter(p => p.tag === filter)
 

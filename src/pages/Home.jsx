@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useContent } from '../store/ContentContext'
 import RevealDiv from '../components/RevealDiv'
@@ -10,6 +10,10 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState(null)
   const pickTrackRef = useRef(null)
   const [activePick, setActivePick] = useState(0)
+
+  useEffect(() => {
+    document.title = 'Pak Aluminium & Steel — Premium Aluminium & Steel Fabrication in Lahore, Pakistan'
+  }, [])
 
   const mostPickItems = categories.map(c => getProductsByCategory(c.slug).slice(0, 2)).flat()
 

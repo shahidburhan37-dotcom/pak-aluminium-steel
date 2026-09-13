@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import RevealDiv from '../components/RevealDiv'
 import { getProductsByCategory } from '../data/products'
@@ -8,6 +8,12 @@ const products = getProductsByCategory('panels')
 
 export default function Panels() {
   const [filter, setFilter] = useState('All')
+
+  useEffect(() => {
+    document.title = 'Composite Panels — Pak Aluminium & Steel'
+    const desc = document.querySelector('meta[name="description"]')
+    if (desc) desc.setAttribute('content', 'ACP cladding, decorative louvers, and architectural wall panels. Premium composite panel solutions in Lahore.')
+  }, [])
   const types = ['All', ...new Set(products.map(p => p.tag))]
   const filtered = filter === 'All' ? products : products.filter(p => p.tag === filter)
 
