@@ -1,25 +1,36 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import RevealDiv from '../components/RevealDiv'
-import { getProductsByCategory } from '../data/products'
+import { getProductsByCategory, getFilterTypes } from '../data/products'
 import WhatsAppButton from '../components/WhatsAppButton'
 
-const products = getProductsByCategory('glass')
+const allProducts = getProductsByCategory('windows')
+const filterTypes = getFilterTypes('windows')
 
 export default function Windows() {
+  const [filter, setFilter] = useState('All')
+  const products = filter === 'All' ? allProducts : allProducts.filter(p => p.tag === filter)
+
   useEffect(() => {
-    document.title = 'Architectural Glass — Pak Aluminium & Steel'
+    document.title = 'Windows — Pak Aluminium & Steel'
     const desc = document.querySelector('meta[name="description"]')
-    if (desc) desc.setAttribute('content', 'Curtain walls, smart glass, soundproof windows, and specialized glazing solutions. Premium architectural glass in Lahore.')
+    if (desc) desc.setAttribute('content', 'Premium aluminum and uPVC windows — casement, sliding, tilt and turn, arched, and picture windows. Custom sizes and finishes in Lahore.')
   }, [])
 
   return (
     <>
       <div className="page-header">
-        <h1 className="page-header-title animate-hero-up delay-0">Architectural Glass</h1>
+        <h1 className="page-header-title animate-hero-up delay-0">Windows</h1>
         <p className="page-header-desc animate-hero-up delay-1">
-          Specialized glass solutions — curtain walls, soundproof windows, smart glass, and architectural glazing.
+          Premium windows for every space — casement, sliding, tilt and turn, arched, and picture windows.
         </p>
+        <div className="filter-tabs animate-hero-up delay-2">
+          {filterTypes.map(type => (
+            <button key={type} className={`filter-tab ${filter === type ? 'active' : ''}`} onClick={() => setFilter(type)}>
+              {type}
+            </button>
+          ))}
+        </div>
       </div>
       <section className="section">
         <div className="masonry-grid">

@@ -133,7 +133,7 @@ export default function About() {
             Built on principles that define who we are and how we work.
           </p>
         </RevealDiv>
-        <div className="values-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, marginTop: 48, maxWidth: 1000, margin: '48px auto 0' }}>
+        <div className="values-grid" style={{ marginTop: 48, margin: '48px auto 0', maxWidth: 1000 }}>
           {values.map((v) => (
             <RevealDiv key={v.title} type="up">
               <div style={{
