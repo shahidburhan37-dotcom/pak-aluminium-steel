@@ -78,7 +78,7 @@ export default function ProductDetail() {
   return (
     <>
       {/* Hero */}
-      <section style={{ position: 'relative', height: '60vh', minHeight: 400, overflow: 'hidden' }}>
+      <section style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
         <img
           src={product.img}
           alt={product.name}
