@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 
-const CONTENT_VERSION = 3
+const CONTENT_VERSION = 4
 
 const defaultContent = {
   topbar: 'Premium Aluminium & Steel Fabrication — Free Consultation Available',
@@ -47,13 +47,20 @@ const defaultContent = {
     },
     {
       id: 5,
-      title: 'Architectural Glass',
-      desc: 'Curtain walls, smart glass, soundproof windows, and specialized glazing.',
-      img: '/images/products/glass/curtain-walling-facade.webp',
+      title: 'Windows',
+      desc: 'Casement, sliding, tilt and turn, arched, and picture windows.',
+      img: '/images/products/windows/black-frame-sliding-window.webp',
       to: '/windows',
     },
     {
       id: 6,
+      title: 'Architectural Glass',
+      desc: 'Curtain walls, smart glass, soundproof windows, and specialized glazing.',
+      img: '/images/products/glass/curtain-walling-facade.webp',
+      to: '/glass',
+    },
+    {
+      id: 7,
       title: 'Composite Panels',
       desc: 'ACP cladding, decorative louvers, and architectural wall panels.',
       img: '/images/products/panels/aluminum-composite-panel-cladding.webp',

@@ -19,7 +19,7 @@ export default function Windows() {
 
   return (
     <>
-      <div className="page-header">
+      <div className="page-header" style={{ paddingTop: 'calc(70px + 15px)' }}>
         <h1 className="page-header-title animate-hero-up delay-0">Windows</h1>
         <p className="page-header-desc animate-hero-up delay-1">
           Premium windows for every space — casement, sliding, tilt and turn, arched, and picture windows.

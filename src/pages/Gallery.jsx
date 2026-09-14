@@ -96,7 +96,7 @@ export default function Gallery() {
 
   return (
     <>
-      <div className="page-header">
+      <div className="page-header" style={{ paddingTop: 'calc(70px + 15px)' }}>
         <h1 className="page-header-title animate-hero-up delay-0">Our Gallery</h1>
         <p className="page-header-desc animate-hero-up delay-1">
           Explore our complete range of premium fabrication work across all categories.
