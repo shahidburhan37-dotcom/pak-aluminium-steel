@@ -77,39 +77,56 @@ export default function ProductDetail() {
 
   return (
     <>
-      {/* Hero */}
-      <section style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
+      {/* Hero - Full Screen Image */}
+      <section style={{
+        position: 'relative', height: '100vh', overflow: 'hidden',
+        background: '#0a0a0a', display: 'flex', alignItems: 'center', justifyContent: 'center',
+      }}>
         <img
           src={product.img}
           alt={product.name}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'pointer' }}
-          onClick={() => setLightbox(true)}
+          style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2))' }} />
+
+        {/* Back Button */}
+        <Link to={`/${product.categorySlug}`} style={{
+          position: 'absolute', top: 20, left: 20, zIndex: 10,
+          display: 'flex', alignItems: 'center', gap: 8,
+          padding: '10px 18px', borderRadius: 10,
+          background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255,255,255,0.2)', color: 'white',
+          fontSize: 13, fontWeight: 600, textDecoration: 'none',
+        }}>
+          <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back
+        </Link>
 
         {/* View Image Button */}
         <button
           onClick={() => setLightbox(true)}
           style={{
-            position: 'absolute', top: '50%', right: 20, zIndex: 10,
-            transform: 'translateY(-50%)',
+            position: 'absolute', top: 20, right: 20, zIndex: 10,
             display: 'flex', alignItems: 'center', gap: 8,
             padding: '10px 18px', borderRadius: 10,
             background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)',
             border: '1px solid rgba(255,255,255,0.2)', color: 'white',
             fontSize: 13, fontWeight: 600, cursor: 'pointer',
-            transition: 'all 0.3s',
           }}
         >
           <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
           </svg>
-          View Image
+          Full Screen
         </button>
 
-        {/* Breadcrumb */}
-        <div style={{ position: 'absolute', top: 20, left: 0, right: 0, padding: '0 clamp(20px, 5vw, 52px)', zIndex: 10 }}>
-          <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 8 }}>
+        {/* Product Name */}
+        <div style={{
+          position: 'absolute', bottom: 30, left: 0, right: 0,
+          textAlign: 'center', zIndex: 10,
+        }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 16px', borderRadius: 8, background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)' }}>
             <Link to="/" style={{ color: 'rgba(255,255,255,0.6)', fontSize: 13, textDecoration: 'none' }}>Home</Link>
             <svg width="12" height="12" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
             <Link to={`/${product.categorySlug}`} style={{ color: 'rgba(255,255,255,0.6)', fontSize: 13, textDecoration: 'none' }}>{product.category}</Link>
@@ -118,21 +135,30 @@ export default function ProductDetail() {
           </div>
         </div>
 
-        <div style={{ position: 'absolute', bottom: 40, left: 0, right: 0, padding: '0 clamp(20px, 5vw, 52px)' }}>
-          <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-              <Link to={`/${categoryPath}`} style={{ color: 'rgba(255,255,255,0.7)', fontSize: 14, textDecoration: 'none' }}>{product.category}</Link>
-              <svg width="14" height="14" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-              <span style={{ color: 'var(--color-gold)', fontSize: 14, fontWeight: 600 }}>{product.tag}</span>
-            </div>
-            <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 700, color: 'white', margin: 0 }}>{product.name}</h1>
-            <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: 18, marginTop: 12, maxWidth: 600 }}>{product.shortDesc}</p>
-          </div>
+        {/* Scroll Down Indicator */}
+        <div
+          onClick={() => document.getElementById('product-content')?.scrollIntoView({ behavior: 'smooth' })}
+          style={{
+            position: 'absolute', bottom: 80, left: '50%', transform: 'translateX(-50%)',
+            cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
+          }}
+        >
+          <span style={{ fontSize: 9, fontWeight: 800, letterSpacing: 3, textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>Scroll Down</span>
+          <div style={{ width: 1, height: 30, background: 'linear-gradient(to bottom, rgba(255,255,255,0.5), transparent)' }} />
         </div>
       </section>
 
       {/* Content */}
-      <section style={{ maxWidth: 1200, margin: '0 auto', padding: '48px clamp(20px, 5vw, 52px)' }}>
+      <section id="product-content" style={{ maxWidth: 1200, margin: '0 auto', padding: '48px clamp(20px, 5vw, 52px)' }}>
+        <div style={{ textAlign: 'center', marginBottom: 48 }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+            <span style={{ fontSize: 14, color: 'var(--color-accent)', fontWeight: 600 }}>{product.category}</span>
+            <svg width="14" height="14" fill="none" stroke="var(--color-text-muted)" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+            <span style={{ fontSize: 14, color: 'var(--color-text-muted)' }}>{product.tag}</span>
+          </div>
+          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, color: 'var(--color-text)', margin: '0 0 12px' }}>{product.name}</h1>
+          <p style={{ color: 'var(--color-text-muted)', fontSize: 17, maxWidth: 600, margin: '0 auto' }}>{product.shortDesc}</p>
+        </div>
         <div className="product-detail-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 400px', gap: 48, alignItems: 'start' }}>
           {/* Left - Details */}
           <div>
