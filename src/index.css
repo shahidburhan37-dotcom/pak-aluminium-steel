@@ -1472,3 +1472,34 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   .cta-title { font-size: 24px; }
   .cta-desc { font-size: 14px; }
 }
+
+/* ═══════════════════════════════════════════════
+   LIGHTBOX
+   ═══════════════════════════════════════════════ */
+.lightbox-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.92); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; cursor: pointer;
+  animation: lightboxIn 0.25s ease;
+}
+.lightbox-close {
+  position: absolute; top: 20px; right: 20px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  color: white; font-size: 24px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s; z-index: 10;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.25); }
+.lightbox-img {
+  max-width: 90vw; max-height: 85vh; object-fit: contain;
+  border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: lightboxZoom 0.25s ease;
+}
+.lightbox-caption {
+  position: absolute; bottom: 24px; left: 0; right: 0;
+  text-align: center; color: rgba(255,255,255,0.7); font-size: 14px;
+}
+@keyframes lightboxIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lightboxZoom { from { transform: scale(0.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }

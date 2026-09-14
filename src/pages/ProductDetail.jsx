@@ -91,7 +91,7 @@ export default function ProductDetail() {
         <button
           onClick={() => setLightbox(true)}
           style={{
-            position: 'absolute', top: 80, right: 20, zIndex: 10,
+            position: 'absolute', bottom: 90, right: 20, zIndex: 10,
             display: 'flex', alignItems: 'center', gap: 8,
             padding: '10px 18px', borderRadius: 10,
             background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)',
@@ -99,8 +99,6 @@ export default function ProductDetail() {
             fontSize: 13, fontWeight: 600, cursor: 'pointer',
             transition: 'all 0.3s',
           }}
-          onMouseEnter={e => e.target.style.background = 'rgba(255,255,255,0.25)'}
-          onMouseLeave={e => e.target.style.background = 'rgba(255,255,255,0.15)'}
         >
           <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
@@ -248,54 +246,21 @@ export default function ProductDetail() {
 
       {/* Lightbox */}
       {lightbox && (
-        <div
-          onClick={() => setLightbox(false)}
-          style={{
-            position: 'fixed', inset: 0, zIndex: 9999,
-            background: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(8px)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            padding: 20, cursor: 'pointer',
-            animation: 'lightboxIn 0.3s ease',
-          }}
-        >
-          <button
-            onClick={() => setLightbox(false)}
-            style={{
-              position: 'absolute', top: 20, right: 20,
-              width: 44, height: 44, borderRadius: '50%',
-              background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)',
-              color: 'white', fontSize: 24, cursor: 'pointer',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              transition: 'all 0.3s', zIndex: 10,
-            }}
-            onMouseEnter={e => e.target.style.background = 'rgba(255,255,255,0.2)'}
-            onMouseLeave={e => e.target.style.background = 'rgba(255,255,255,0.1)'}
-          >
+        <div className="lightbox-overlay" onClick={() => setLightbox(false)}>
+          <button className="lightbox-close" onClick={() => setLightbox(false)}>
             &#10005;
           </button>
           <img
             src={product.img}
             alt={product.name}
             onClick={e => e.stopPropagation()}
-            style={{
-              maxWidth: '90vw', maxHeight: '85vh', objectFit: 'contain',
-              borderRadius: 12, boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-              animation: 'lightboxZoom 0.3s ease',
-            }}
+            className="lightbox-img"
           />
-          <div style={{
-            position: 'absolute', bottom: 24, left: 0, right: 0,
-            textAlign: 'center', color: 'rgba(255,255,255,0.7)', fontSize: 14,
-          }}>
+          <div className="lightbox-caption">
             {product.name}
           </div>
         </div>
       )}
-
-      <style>{`
-        @keyframes lightboxIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes lightboxZoom { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-      `}</style>
     </>
   )
 }
