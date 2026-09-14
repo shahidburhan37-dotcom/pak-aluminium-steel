@@ -14,6 +14,7 @@ export default function ProductDetail() {
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
   const [touched, setTouched] = useState(false)
+  const [lightbox, setLightbox] = useState(false)
 
   useEffect(() => {
     if (product) {
@@ -22,6 +23,16 @@ export default function ProductDetail() {
       if (desc) desc.setAttribute('content', product.description || `${product.name} — Premium fabrication by Pak Aluminium & Steel in Lahore.`)
     }
   }, [product])
+
+  useEffect(() => {
+    if (lightbox) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [lightbox])
+
   const [sending, setSending] = useState(false)
 
   if (!product) {
@@ -68,8 +79,34 @@ export default function ProductDetail() {
     <>
       {/* Hero */}
       <section style={{ position: 'relative', height: '60vh', minHeight: 400, overflow: 'hidden' }}>
-        <img src={product.img} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <img
+          src={product.img}
+          alt={product.name}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'pointer' }}
+          onClick={() => setLightbox(true)}
+        />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2))' }} />
+
+        {/* View Image Button */}
+        <button
+          onClick={() => setLightbox(true)}
+          style={{
+            position: 'absolute', top: 80, right: 20, zIndex: 10,
+            display: 'flex', alignItems: 'center', gap: 8,
+            padding: '10px 18px', borderRadius: 10,
+            background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255,255,255,0.2)', color: 'white',
+            fontSize: 13, fontWeight: 600, cursor: 'pointer',
+            transition: 'all 0.3s',
+          }}
+          onMouseEnter={e => e.target.style.background = 'rgba(255,255,255,0.25)'}
+          onMouseLeave={e => e.target.style.background = 'rgba(255,255,255,0.15)'}
+        >
+          <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+          </svg>
+          View Image
+        </button>
 
         {/* Breadcrumb */}
         <div style={{ position: 'absolute', top: 20, left: 0, right: 0, padding: '0 clamp(20px, 5vw, 52px)', zIndex: 10 }}>
@@ -208,6 +245,57 @@ export default function ProductDetail() {
           </div>
         </RevealDiv>
       </section>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          onClick={() => setLightbox(false)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 9999,
+            background: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(8px)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: 20, cursor: 'pointer',
+            animation: 'lightboxIn 0.3s ease',
+          }}
+        >
+          <button
+            onClick={() => setLightbox(false)}
+            style={{
+              position: 'absolute', top: 20, right: 20,
+              width: 44, height: 44, borderRadius: '50%',
+              background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)',
+              color: 'white', fontSize: 24, cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              transition: 'all 0.3s', zIndex: 10,
+            }}
+            onMouseEnter={e => e.target.style.background = 'rgba(255,255,255,0.2)'}
+            onMouseLeave={e => e.target.style.background = 'rgba(255,255,255,0.1)'}
+          >
+            &#10005;
+          </button>
+          <img
+            src={product.img}
+            alt={product.name}
+            onClick={e => e.stopPropagation()}
+            style={{
+              maxWidth: '90vw', maxHeight: '85vh', objectFit: 'contain',
+              borderRadius: 12, boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+              animation: 'lightboxZoom 0.3s ease',
+            }}
+          />
+          <div style={{
+            position: 'absolute', bottom: 24, left: 0, right: 0,
+            textAlign: 'center', color: 'rgba(255,255,255,0.7)', fontSize: 14,
+          }}>
+            {product.name}
+          </div>
+        </div>
+      )}
+
+      <style>{`
+        @keyframes lightboxIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes lightboxZoom { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+      `}</style>
     </>
   )
 }

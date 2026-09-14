@@ -1,16 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import RevealDiv from '../components/RevealDiv'
-import { getProductsByCategory, getFilterTypes } from '../data/products'
+import { getProductsByCategory } from '../data/products'
 import WhatsAppButton from '../components/WhatsAppButton'
 
-const allProducts = getProductsByCategory('windows')
-const filterTypes = getFilterTypes('windows')
+const products = getProductsByCategory('windows')
 
 export default function Windows() {
-  const [filter, setFilter] = useState('All')
-  const products = filter === 'All' ? allProducts : allProducts.filter(p => p.tag === filter)
-
   useEffect(() => {
     document.title = 'Windows — Pak Aluminium & Steel'
     const desc = document.querySelector('meta[name="description"]')
@@ -24,13 +20,6 @@ export default function Windows() {
         <p className="page-header-desc animate-hero-up delay-1">
           Premium windows for every space — casement, sliding, tilt and turn, arched, and picture windows.
         </p>
-        <div className="filter-tabs animate-hero-up delay-2">
-          {filterTypes.map(type => (
-            <button key={type} className={`filter-tab ${filter === type ? 'active' : ''}`} onClick={() => setFilter(type)}>
-              {type}
-            </button>
-          ))}
-        </div>
       </div>
       <section className="section">
         <div className="masonry-grid">
