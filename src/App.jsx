@@ -6,6 +6,7 @@ import ErrorBoundary from './components/ErrorBoundary'
 import Home from './pages/Home'
 
 const Windows = lazy(() => import('./pages/Windows'))
+const Glass = lazy(() => import('./pages/Glass'))
 const Railings = lazy(() => import('./pages/Railings'))
 const Doors = lazy(() => import('./pages/Doors'))
 const ShowerCabins = lazy(() => import('./pages/ShowerCabins'))
@@ -112,6 +113,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/windows" element={<Windows />} />
+            <Route path="/glass" element={<Glass />} />
             <Route path="/railings" element={<Railings />} />
             <Route path="/doors" element={<Doors />} />
             <Route path="/shower-cabins" element={<ShowerCabins />} />

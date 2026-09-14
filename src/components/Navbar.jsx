@@ -110,6 +110,10 @@ export default function Navbar() {
                   <img src="/images/products/windows/aluminum-casement-window.webp" alt="Windows" />
                   <span>Windows</span>
                 </Link>
+                <Link to="/glass">
+                  <img src="/images/products/glass/curtain-walling-facade.webp" alt="Glass" />
+                  <span>Architectural Glass</span>
+                </Link>
                 <Link to="/panels">
                   <img src="/images/products/panels/aluminum-composite-panel-cladding.webp" alt="Panels" />
                   <span>Composite Panels</span>
@@ -157,7 +161,8 @@ export default function Navbar() {
         <Link to="/shower-cabins" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.4s' }}>Shower Cabins</Link>
         <Link to="/terraces" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.45s' }}>Terraces</Link>
         <Link to="/windows" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.5s' }}>Windows</Link>
-        <Link to="/panels" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.55s' }}>Composite Panels</Link>
+        <Link to="/glass" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.55s' }}>Architectural Glass</Link>
+        <Link to="/panels" onClick={() => setMobileOpen(false)} style={{ animationDelay: '0.6s' }}>Composite Panels</Link>
         <div className="mobile-menu-divider" />
         <button onClick={() => { setMobileOpen(false); scrollTo('#whatsapp') }} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 20, fontWeight: 600, color: 'var(--color-text)', animationDelay: '0.5s', padding: 0 }}>
           Contact Us
