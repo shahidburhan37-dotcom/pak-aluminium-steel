@@ -91,7 +91,8 @@ export default function ProductDetail() {
         <button
           onClick={() => setLightbox(true)}
           style={{
-            position: 'absolute', bottom: 90, right: 20, zIndex: 10,
+            position: 'absolute', top: '50%', right: 20, zIndex: 10,
+            transform: 'translateY(-50%)',
             display: 'flex', alignItems: 'center', gap: 8,
             padding: '10px 18px', borderRadius: 10,
             background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)',
