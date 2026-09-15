@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 
-const CONTENT_VERSION = 4
+const CONTENT_VERSION = 5
 
 const defaultContent = {
   topbar: 'Premium Aluminium & Steel Fabrication — Free Consultation Available',
